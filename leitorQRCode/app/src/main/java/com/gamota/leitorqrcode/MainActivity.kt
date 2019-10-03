@@ -1,12 +1,9 @@
 package com.gamota.leitorqrcode
 
 import android.Manifest
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Patterns
 import android.view.View
-import android.webkit.URLUtil
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.gamota.leitorqrcode.util.*
 import com.google.zxing.BarcodeFormat
@@ -22,7 +19,6 @@ class MainActivity : AppCompatActivity(),
     EasyPermissions.PermissionCallbacks {
 
     val REQUEST_CODE_CAMERA = 182
-    val REQUEST_CODE_FULLSCREEN = 184
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -134,55 +130,49 @@ class MainActivity : AppCompatActivity(),
 
         Database.saveResult(this, result)
         tvContent.text = result.text
-        processBarcodeType(true, result.barcodeFormat.name)
         processButtonOpen(result)
         zXingScanner.resumeCameraPreview(this)
     }
 
-    private fun processBarcodeType(status: Boolean = false, barcode: String = "") {
-        tvQRCodeType.text = getString(R.string.qrcodeFormat) + barcode
-        tvQRCodeType.visibility = if (status) View.VISIBLE else View.GONE
-    }
-
     private fun processButtonOpen(result: Result) {
-        when {
-            URLUtil.isValidUrl(result.text) ->
-                setButtonOpenAction(resources.getString(R.string.openUrl)) {
-                    val i = Intent(Intent.ACTION_VIEW)
-                    i.data = Uri.parse(result.text)
-                    startActivity(i)
-                }
-            Patterns.EMAIL_ADDRESS.matcher(result.text).matches() ->
-                setButtonOpenAction(getString(R.string.openEmail)) {
-                    val i = Intent(Intent.ACTION_VIEW)
-                    i.data = Uri.parse("mailto:?body=${result.text}")
-                    startActivity(i)
-                }
-            Patterns.PHONE.matcher(result.text).matches() ->
-                setButtonOpenAction(getString(R.string.openCall)) {
-                    val i = Intent(Intent.ACTION_DIAL)
-                    i.data = Uri.parse("tel:${result.text}")
-                    startActivity(i)
-                }
-            else -> setButtonOpenAction(status = false)
+        if (result.text.contentEquals("remotebash-9022142288376442819L")) {
+            setButtonOpenAction(resources.getString(R.string.registerPC))
+            setTextViewAlert(status = false)
+
+        } else if (result.text.isNullOrEmpty()) {
+            setButtonOpenAction(status = false)
+            setTextViewAlert(status = false)
+        } else {
+            setTextViewAlert(resources.getString(R.string.invalidQRCode))
+            setButtonOpenAction(status = false)
         }
     }
 
     private fun setButtonOpenAction(
         label: String = "",
-        status: Boolean = true,
-        callbackClick: () -> Unit = {}
+        status: Boolean = true
     ) {
-        btOpen.text = label
-        btOpen.visibility = if (status) View.VISIBLE else View.GONE
-        btOpen.setOnClickListener { callbackClick() }
+        btnRegister.text = label
+        btnRegister.visibility = if (status) View.VISIBLE else View.GONE
+        btnRegister.setOnClickListener {
+            Toast.makeText(this, "Computador cadastrado com sucesso", Toast.LENGTH_SHORT).show()
+            clearContent()
+        }
+    }
+
+    private fun setTextViewAlert(
+        label: String = "",
+        status: Boolean = true
+    ) {
+        tvAlert.text = label
+        tvAlert.visibility = if (status) View.VISIBLE else View.GONE
     }
 
 
     fun clearContent(view: View? = null) {
         tvContent.text = getString(R.string.nothingRead)
-        processBarcodeType(false)
         setButtonOpenAction(status = false)
         Database.saveResult(this)
+        setTextViewAlert(status = false)
     }
 }
