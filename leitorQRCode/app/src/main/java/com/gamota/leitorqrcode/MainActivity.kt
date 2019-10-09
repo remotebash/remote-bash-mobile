@@ -135,7 +135,7 @@ class MainActivity : AppCompatActivity(),
     }
 
     private fun processButtonOpen(result: Result) {
-        if (result.text.contentEquals("remotebash-9022142288376442819L")) {
+        if (result.text.contains("remotebash-9022142288376442819L")) {
             setButtonOpenAction(resources.getString(R.string.registerPC))
             setTextViewAlert(status = false)
 
