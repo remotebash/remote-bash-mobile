@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Remote Bash</string>
+    <string name="novoComputador" translatable="false">Nueva Computadora</string>
+    <string name="logar" translatable="false">Iniciar Sesión</string>
+    <string name="novoLaboratorio" translatable="false">Nuevo Laboratorio</string>
+    <string name="senha" translatable="false">Contraseña</string>
+    <string name="usuario" translatable="false">Usuario</string>
+    <string name="laboratorio" translatable="false">Laboratorio</string>
+    <string name="descricao" translatable="false">Descripción</string>
+    <string name="salvar" translatable="false">Guardar</string>
+    <string name="cancelar" translatable="false">Cancelar</string>
+</resources>

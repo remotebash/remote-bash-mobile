@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".NewLaboratorio">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+                android:id="@+id/imageLaboratorio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100sp"
+                android:src="@mipmap/laboratorio"
+                app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+                android:id="@+id/editTextLaboratorio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:background="@drawable/edit_text_login"
+                android:gravity="center"
+                android:hint="@string/laboratorio"
+                android:inputType="text"
+                android:maxWidth="300sp"
+                android:minWidth="250sp"
+                android:padding="10sp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textCursorDrawable="@drawable/cursor_layout"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageLaboratorio" />
+
+        <EditText
+                android:id="@+id/editTextSenha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/edit_text_login"
+                android:gravity="center"
+                android:hint="@string/descricao"
+                android:inputType="text"
+                android:maxWidth="300sp"
+                android:minWidth="300sp"
+                android:padding="10sp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColorLink="@color/colorAccent"
+                android:textCursorDrawable="@drawable/cursor_layout"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextLaboratorio" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+            <Button
+                    android:id="@+id/btnLogar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="73sp"
+                    android:layout_marginBottom="80sp"
+                    android:width="150sp"
+                    android:height="50sp"
+                    android:background="@drawable/button_salvar"
+                    android:onClick="salvarLaboratorio"
+                    android:text="@string/salvar"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="10dp"/>
+
+            <Button
+                    android:id="@+id/btnCancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="73sp"
+                    android:layout_marginBottom="80sp"
+                    android:width="150sp"
+                    android:height="50sp"
+                    android:background="@drawable/button_cancelar"
+                    android:onClick="onBackPressed"
+                    android:text="@string/cancelar"
+                    android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

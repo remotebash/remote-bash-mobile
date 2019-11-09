@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              style="@style/AppTheme"
+>
+    <LinearLayout
+            android:id="@+id/llComputer"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="25dp"
+        >
+        <Button
+                android:text="+"
+                android:textSize="40dp"
+                android:textColor="@color/addComputer"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/btnAddLab"
+                android:background="@drawable/button_add"
+                android:onClick="newLaboratorio"
+        />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvNameLab"
+                android:text="@string/novoLaboratorio"
+                android:textColor="@color/default_white"
+                android:textSize="30dp"
+                android:layout_marginLeft="20dp"
+        />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_lab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    />
+
+</LinearLayout>

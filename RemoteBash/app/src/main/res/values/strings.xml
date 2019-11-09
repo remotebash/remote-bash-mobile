@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Remote Bash</string>
+    <string name="usuario" translatable="false">Usuário</string>
+    <string name="senha" translatable="false">Senha</string>
+    <string name="logar" translatable="false">Logar</string>
+    <string name="novoLaboratorio" translatable="false">Novo Laboratório</string>
+    <string name="novoComputador" translatable="false">Novo Computer</string>
+    <string name="laboratorio" translatable="false">Laboratório</string>
+    <string name="descricao" translatable="false">Descrição</string>
+    <string name="salvar" translatable="false">Salvar</string>
+    <string name="cancelar" translatable="false">Cancelar</string>
 </resources>
