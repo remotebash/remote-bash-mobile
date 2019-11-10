@@ -31,8 +31,6 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Toque novamente para sair", Toast.LENGTH_SHORT).show()
 
         Handler().postDelayed(Runnable { doubleBackToExit = false },1500)
-
-
     }
 
     fun logar(v: View){
@@ -50,10 +48,9 @@ class MainActivity : AppCompatActivity() {
             toastAlert(2)
         }
         else{
-            if(email.text.toString().equals("remote") && senha.text.toString().equals("bash")){
-                val laboratorio = Intent(this, Laboratorio::class.java)
-
-                startActivity(laboratorio)
+            if(email.text.toString() == "remote" && senha.text.toString() == "bash"){
+                val laboratorio = Intent(this@MainActivity, Laboratorio::class.java)
+                this.startActivity(laboratorio)
             }
             else{
                 email.setBackgroundResource(R.drawable.edit_text_login_err)

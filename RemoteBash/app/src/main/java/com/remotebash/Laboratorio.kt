@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.remotebash.adapter.LaboratorioListAdapter
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_laboratorio.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.Exception
 
 class Laboratorio : AppCompatActivity() {
 
@@ -24,6 +26,7 @@ class Laboratorio : AppCompatActivity() {
         callRetrofit.enqueue(object: Callback<List<LaboratorioModel>?> {
             override fun onFailure(call: Call<List<LaboratorioModel>?>, t: Throwable) {
                 Log.e("onFailure error", t?.message)
+                Toast.makeText(this@Laboratorio,"Erro de conecção verifique a internet", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<List<LaboratorioModel>?>, response: Response<List<LaboratorioModel>?>) {
@@ -45,8 +48,14 @@ class Laboratorio : AppCompatActivity() {
     }
 
     fun newLaboratorio(v: View){
-        val newLaboratorio = Intent(this, NewLaboratorio::class.java)
-        startActivity(newLaboratorio)
+        try {
+            val newLaboratorio = Intent(this, NewLaboratorio::class.java)
+            startActivity(newLaboratorio)
+        }
+        catch (e: Exception){
+
+        }
+
     }
 
 
