@@ -4,20 +4,22 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.remotebash.model.usuario
 import com.remotebash.retrofit.RetrofitInitializer
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        RetrofitInitializer()
-
     }
 
     private var doubleBackToExit = false
@@ -48,9 +50,17 @@ class MainActivity : AppCompatActivity() {
             toastAlert(2)
         }
         else{
+            verificarLogin(email.text.toString(), senha.text.toString())
             if(email.text.toString() == "remote" && senha.text.toString() == "bash"){
-                val laboratorio = Intent(this@MainActivity, Laboratorio::class.java)
-                this.startActivity(laboratorio)
+                try {
+                    val laboratorio = Intent(this, Laboratorio::class.java)
+                    startActivity(laboratorio)
+                }
+                catch (e: Exception){
+                    Log.e("fail acesso Laboratorio", e.message)
+                    Toast.makeText(this, "Não foi possivel acessar", Toast.LENGTH_LONG).show()
+                }
+
             }
             else{
                 email.setBackgroundResource(R.drawable.edit_text_login_err)
@@ -76,6 +86,26 @@ class MainActivity : AppCompatActivity() {
     }
     fun focusSenha(v: View){
         editTextSenha.setBackgroundResource(R.drawable.edit_text_login)
+    }
+
+    fun verificarLogin(email:String, pass:String) {
+        val callRetrofit = RetrofitInitializer().usuarioService().usuario()
+
+        callRetrofit.enqueue(object: Callback<usuario> {
+            override fun onFailure(call: Call<usuario>, t: Throwable) {
+                Log.e("onFailure error", t?.message)
+                Toast.makeText(this@MainActivity,
+                    "Erro de conexão verifique a internet",
+                    Toast.LENGTH_LONG).show()
+            }
+
+            override fun onResponse(call: Call<usuario>, response: Response<usuario>) {
+                response.body()?.let {
+
+                }
+            }
+
+        })
     }
 
 }

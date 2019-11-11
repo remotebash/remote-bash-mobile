@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface LaboratorioService {
 
-    @GET("laboratorio")
+    @GET("computers")
     fun listLaboratorio(): Call<List<LaboratorioModel>>
 
 

@@ -26,7 +26,7 @@ class Laboratorio : AppCompatActivity() {
         callRetrofit.enqueue(object: Callback<List<LaboratorioModel>?> {
             override fun onFailure(call: Call<List<LaboratorioModel>?>, t: Throwable) {
                 Log.e("onFailure error", t?.message)
-                Toast.makeText(this@Laboratorio,"Erro de conecção verifique a internet", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Laboratorio,"Erro de conexão verifique a internet", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<List<LaboratorioModel>?>, response: Response<List<LaboratorioModel>?>) {
@@ -53,7 +53,7 @@ class Laboratorio : AppCompatActivity() {
             startActivity(newLaboratorio)
         }
         catch (e: Exception){
-
+            Toast.makeText(this, "Erro ao acessar novos laboratorios", Toast.LENGTH_SHORT).show()
         }
 
     }
