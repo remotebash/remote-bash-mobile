@@ -1,7 +1,10 @@
 package com.remotebash
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -18,44 +21,60 @@ import kotlin.Exception
 
 class Laboratorio : AppCompatActivity() {
 
+    var preferencias: SharedPreferences? = null
+    var editPreferencias: SharedPreferences.Editor? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_laboratorio)
 
-        val callRetrofit = RetrofitInitializer().laboratorioService().listLaboratorio()
-        callRetrofit.enqueue(object: Callback<List<LaboratorioModel>?> {
+        preferencias = getSharedPreferences("remotebash", Context.MODE_PRIVATE)
+        editPreferencias = preferencias?.edit()
+
+        val callListaLaboratorios = RetrofitInitializer().laboratorioService().listLaboratorio()
+        callListaLaboratorios.enqueue(object : Callback<List<LaboratorioModel>?> {
             override fun onFailure(call: Call<List<LaboratorioModel>?>, t: Throwable) {
-                Log.e("onFailure error", t?.message)
-                Toast.makeText(this@Laboratorio,"Erro de conexão verifique a internet", Toast.LENGTH_SHORT).show()
+                Log.e("onFailure lab error", t?.message)
+                Toast.makeText(this@Laboratorio, "Erro de conexão", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<List<LaboratorioModel>?>, response: Response<List<LaboratorioModel>?>) {
                 response.body()?.let {
-                    val labs:List<LaboratorioModel> = it
+                    val labs: List<LaboratorioModel> = it
                     configureListLab(labs)
                 }
             }
 
         })
-
     }
 
-    private fun configureListLab(laboratorios: List<LaboratorioModel>){
-        val recyclerView = recyclerview_lab
+    private fun configureListLab(laboratorios: List<LaboratorioModel>) {
+        val recyclerView = rvLaboratorios
         recyclerView.adapter = LaboratorioListAdapter(laboratorios, this)
         val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
     }
 
-    fun newLaboratorio(v: View){
+    fun newLaboratorio(v: View) {
         try {
             val newLaboratorio = Intent(this, NewLaboratorio::class.java)
             startActivity(newLaboratorio)
-        }
-        catch (e: Exception){
+        } catch (e: Exception) {
             Toast.makeText(this, "Erro ao acessar novos laboratorios", Toast.LENGTH_SHORT).show()
         }
+    }
 
+    private var doubleBackToExit = false
+    override fun onBackPressed() {
+        if (doubleBackToExit) {
+            editPreferencias?.putBoolean("autenticado", false)
+            editPreferencias?.commit()
+            super.onBackPressed()
+        }
+
+        this.doubleBackToExit = true
+        Toast.makeText(this, "Toque novamente para sair", Toast.LENGTH_SHORT).show()
+        Handler().postDelayed(Runnable { doubleBackToExit = false }, 1500)
     }
 
 

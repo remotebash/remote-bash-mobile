@@ -1,89 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity"
-        android:background="@android:color/black"
->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".MainActivity">
+
     <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-    >
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-        >
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="100sp"
+            android:paddingBottom="100sp">
+
             <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/remotebash_logo_1"
-                    android:id="@+id/imageRemoteBash"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="100sp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
-            />
+                android:id="@+id/imageRemoteBash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/remotebash_logo_1" />
+
             <EditText
-                    android:id="@+id/editTextEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:hint="@string/usuario"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:minWidth="180sp"
-                    android:maxWidth="300sp"
-                    android:padding="10sp"
-                    android:layout_marginTop="50sp"
-                    app:layout_constraintTop_toBottomOf="@+id/imageRemoteBash"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:textColor="@android:color/white"
-                    android:background="@drawable/edit_text_login"
-                    android:onClick="focusUsuario"
-                    android:textCursorDrawable="@drawable/cursor_layout"
-            />
+                android:id="@+id/editTextEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:background="@drawable/edit_text_login"
+                android:hint="@string/usuario"
+                android:inputType="textEmailAddress"
+                android:minWidth="180sp"
+                android:onClick="focus"
+                android:padding="10sp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                app:layout_constraintTop_toBottomOf="@+id/imageRemoteBash" />
+
             <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/senha"
-                    android:textColorLink="@color/colorAccent"
-                    android:minWidth="180sp"
-                    android:maxWidth="300sp"
-                    android:inputType="textPassword"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:id="@+id/editTextSenha"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
-                    android:textColor="@android:color/white"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="5sp"
-                    android:padding="10sp"
-                    android:background="@drawable/edit_text_login"
-                    android:onClick="focusSenha"
-                    android:textCursorDrawable="@drawable/cursor_layout"
-            />
+                android:id="@+id/etCapacidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/edit_text_login"
+                android:hint="@string/senha"
+                android:inputType="textPassword"
+                android:minWidth="180sp"
+                android:onClick="focus"
+                android:padding="10sp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textColorLink="@color/colorAccent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+            <Switch
+                android:id="@+id/swHabilitado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:checked="false"
+                android:text="@string/lembreMim"
+                app:layout_constraintTop_toBottomOf="@id/etCapacidade" />
+
             <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:width="150sp"
-                    android:height="50sp"
-                    android:text="@string/logar"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextSenha"
-                    android:textColor="@android:color/white"
-                    android:background="@drawable/button_login"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="73sp"
-                    android:layout_marginBottom="80sp"
-                    android:onClick="logar"
-                    android:id="@+id/btnLogar"
-            />
+                android:id="@+id/btnLogar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:width="150sp"
+                android:height="50sp"
+                android:background="@drawable/button_login"
+                android:onClick="logar"
+                android:text="@string/logar"
+                android:textColor="@android:color/white"
+                app:layout_constraintTop_toBottomOf="@+id/swHabilitado" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

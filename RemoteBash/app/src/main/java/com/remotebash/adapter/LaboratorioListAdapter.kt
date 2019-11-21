@@ -15,8 +15,8 @@ class LaboratorioListAdapter(private val listLab: List<LaboratorioModel>,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val labList = listLab[position]
-        holder.ivLaboratorio.text = labList.laboratorio
-        holder.ivDescricao.text = labList.descricao
+        holder.ivLaboratorio.text = labList.floor
+        holder.ivDescricao.text = labList.capacity
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,8 +35,8 @@ class LaboratorioListAdapter(private val listLab: List<LaboratorioModel>,
         val ivDescricao = itemView.descricao_item_nome
 
         fun bindView(labModel: LaboratorioModel) {
-            ivLaboratorio.text = labModel.laboratorio
-            ivDescricao.text = labModel.descricao
+            ivLaboratorio.text = labModel.floor
+            ivDescricao.text = labModel.capacity
         }
 
     }
