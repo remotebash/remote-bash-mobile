@@ -5,13 +5,10 @@ import retrofit2.Retrofit
 import com.remotebash.retrofit.service.UsuarioService
 import retrofit2.converter.gson.GsonConverterFactory
 import com.google.gson.GsonBuilder
-import com.google.gson.Gson
-
-
 
 class RetrofitInitializer {
 
-    var gson = GsonBuilder()
+    val gson = GsonBuilder()
             .setLenient()
             .create()
 

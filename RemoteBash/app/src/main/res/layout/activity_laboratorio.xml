@@ -12,26 +12,27 @@
         android:gravity="center_vertical"
         android:onClick="newLaboratorio"
         android:orientation="horizontal"
-        android:padding="25dp">
+        android:padding="25sp">
 
         <Button
             android:id="@+id/btnAddLab"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
             android:background="@drawable/button_add"
+            android:text="@string/add"
             android:onClick="newLaboratorio"
-            android:text="+"
             android:textColor="@color/addComputer"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <TextView
             android:id="@+id/tvNameLab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20sp"
             android:text="@string/novoLaboratorio"
             android:textColor="@color/default_white"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

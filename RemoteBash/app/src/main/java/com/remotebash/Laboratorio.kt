@@ -34,34 +34,25 @@ class Laboratorio : AppCompatActivity() {
         val callListaLaboratorios = RetrofitInitializer().laboratorioService().listLaboratorio()
         callListaLaboratorios.enqueue(object : Callback<List<LaboratorioModel>?> {
             override fun onFailure(call: Call<List<LaboratorioModel>?>, t: Throwable) {
-                Log.e("onFailure lab error", t?.message)
+                Log.e("onFailure lab error", t.toString())
                 Toast.makeText(this@Laboratorio, "Erro de conexão", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<List<LaboratorioModel>?>, response: Response<List<LaboratorioModel>?>) {
                 response.body()?.let {
-                    val labs: List<LaboratorioModel> = it
-                    configureListLab(labs)
+                    val recyclerView = rvLaboratorios
+                    recyclerView.adapter = LaboratorioListAdapter(it, this@Laboratorio)
+                    val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+                    recyclerView.layoutManager = layoutManager
                 }
             }
 
         })
     }
 
-    private fun configureListLab(laboratorios: List<LaboratorioModel>) {
-        val recyclerView = rvLaboratorios
-        recyclerView.adapter = LaboratorioListAdapter(laboratorios, this)
-        val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-        recyclerView.layoutManager = layoutManager
-    }
-
     fun newLaboratorio(v: View) {
-        try {
-            val newLaboratorio = Intent(this, NewLaboratorio::class.java)
-            startActivity(newLaboratorio)
-        } catch (e: Exception) {
-            Toast.makeText(this, "Erro ao acessar novos laboratorios", Toast.LENGTH_SHORT).show()
-        }
+        val newLaboratorio = Intent(this, NewLaboratorio::class.java)
+        startActivity(newLaboratorio)
     }
 
     private var doubleBackToExit = false
@@ -71,11 +62,9 @@ class Laboratorio : AppCompatActivity() {
             editPreferencias?.commit()
             super.onBackPressed()
         }
-
         this.doubleBackToExit = true
         Toast.makeText(this, "Toque novamente para sair", Toast.LENGTH_SHORT).show()
         Handler().postDelayed(Runnable { doubleBackToExit = false }, 1500)
     }
-
 
 }

@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         editPreferencias = preferencias?.edit()
 
         if (preferencias!!.getBoolean("autenticado", false)) {
-            var laboratorio = Intent(this, Laboratorio::class.java)
+            val laboratorio = Intent(this, Laboratorio::class.java)
             startActivity(laboratorio)
         }
     }
@@ -39,57 +38,59 @@ class MainActivity : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.editTextEmail)
         val senha = findViewById<EditText>(R.id.etCapacidade)
 
-        if (email.text.isNullOrEmpty()) {
-            email.setBackgroundResource(R.drawable.edit_text_login_err)
-            email.requestFocus()
-            toastAlert(1)
+        when {
+            email.text.isNullOrEmpty() -> {
+                email.setBackgroundResource(R.drawable.edit_text_login_err)
+                email.requestFocus()
+                toastAlert(1)
+            }
+            senha.text.isNullOrEmpty() -> {
+                senha.setBackgroundResource(R.drawable.edit_text_login_err)
+                senha.requestFocus()
+                toastAlert(2)
+            }
+            else -> {
+                val usuario = UsuarioModel(email.text.toString(), senha.text.toString())
+                val callUsuario = RetrofitInitializer().usuarioService().usuario(usuario)
 
-        } else if (senha.text.isNullOrEmpty()) {
-            senha.setBackgroundResource(R.drawable.edit_text_login_err)
-            senha.requestFocus()
-            toastAlert(2)
+                callUsuario.enqueue(object : Callback<UsuarioModel> {
+                    override fun onFailure(call: Call<UsuarioModel>, t: Throwable) {
+                        Log.e("onFailure main error", t.toString())
+                        Toast.makeText(this@MainActivity, "Erro de conexão", Toast.LENGTH_SHORT).show()
+                    }
 
-        } else {
-            val usuario = UsuarioModel(email.text.toString(), senha.text.toString())
-            val callUsuario = RetrofitInitializer().usuarioService().usuario(usuario)
+                    override fun onResponse(call: Call<UsuarioModel>, response: Response<UsuarioModel>) {
+                        response.body().let {
+                            if (email.text.toString() == "remote" && senha.text.toString() == "bash" || it != null) {
+                                val laboratorio = Intent(this@MainActivity, Laboratorio::class.java)
+                                if (swHabilitado.isChecked) {
+                                    editPreferencias?.putBoolean("autenticado", true)
+                                    editPreferencias?.putLong("idUsuario", it?.id!!)
+                                    editPreferencias?.commit()
+                                }
+                                startActivity(laboratorio)
 
-            callUsuario.enqueue(object : Callback<UsuarioModel> {
-                override fun onFailure(call: Call<UsuarioModel>, t: Throwable) {
-                    Log.e("onFailure main error", t?.message)
-                    Toast.makeText(this@MainActivity, "Erro de conexão", Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onResponse(call: Call<UsuarioModel>, response: Response<UsuarioModel>) {
-                    response.body().let {
-                        if (email.text.toString() == "remote" && senha.text.toString() == "bash" || it != null) {
-                            val laboratorio = Intent(this@MainActivity, Laboratorio::class.java)
-                            if (swHabilitado.isChecked) {
-                                editPreferencias?.putBoolean("autenticado", true)
-                                editPreferencias?.putLong("idUsuario", it?.id!!)
-                                editPreferencias?.commit()
+                            } else {
+                                email.setBackgroundResource(R.drawable.edit_text_login_err)
+                                senha.setBackgroundResource(R.drawable.edit_text_login_err)
+                                email.requestFocus()
+                                toastAlert(3)
                             }
-                            startActivity(laboratorio)
-
-                        } else {
-                            email.setBackgroundResource(R.drawable.edit_text_login_err)
-                            email.requestFocus()
-                            senha.setBackgroundResource(R.drawable.edit_text_login_err)
-                            toastAlert(3)
                         }
                     }
-                }
 
-            })
+                })
 
+            }
         }
     }
 
     fun toastAlert(n: Int) {
-        var mensagem = ""
-        when (n) {
-            1 -> mensagem = "Usuário obrigatorio!"
-            2 -> mensagem = "Senha obrigatorio!"
-            3 -> mensagem = "Usuário ou Senha inválido."
+        val mensagem: String? = when (n) {
+            1 -> "Usuário obrigatorio!"
+            2 -> "Senha obrigatorio!"
+            3 -> "Usuário ou Senha inválido."
+            else -> ""
         }
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show()
     }

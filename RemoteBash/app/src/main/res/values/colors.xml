@@ -3,13 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-
-    <!--
-    <color name="colorPrimary">#F44336</color>
-    <color name="colorPrimaryDark">#000</color>
-    <color name="colorAccent">#45FF00</color>
-    -->
-
+    
     <color name="default_err">#F44336</color>
     <color name="default_orange">#d95710</color>
     <color name="default_white">#ebebeb</color>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Remote Bash</string>
     <string name="novoComputador" translatable="false">New Computer</string>
     <string name="novoLaboratorio" translatable="false">New Laboratory</string>
     <string name="senha" translatable="false">Password</string>
@@ -10,4 +9,7 @@
     <string name="descricao" translatable="false">Description</string>
     <string name="salvar" translatable="false">Save</string>
     <string name="cancelar" translatable="false">Cancel</string>
+    <string name="andar" translatable="false">Floor</string>
+    <string name="capacidade" translatable="false">Capacity</string>
+    <string name="lembreMim" translatable="false">Remember me</string>
 </resources>

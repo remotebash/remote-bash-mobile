@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Remote Bash</string>
+    <string name="app_name" translatable="false">Remote Bash</string>
     <string name="usuario" translatable="false">Usuário</string>
     <string name="senha" translatable="false">Senha</string>
     <string name="logar" translatable="false">Logar</string>
@@ -12,4 +12,5 @@
     <string name="lembreMim" translatable="false">Lembre-se de Mim</string>
     <string name="andar" translatable="false">Andar</string>
     <string name="capacidade" translatable="false">Capacidade</string>
+    <string name="add" translatable="false">+</string>
 </resources>

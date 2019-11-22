@@ -17,19 +17,19 @@
 
         <TextView
             android:id="@+id/tvTituloAddLab"
-            android:textColor="@color/default_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/novoLaboratorio"
-            android:textSize="40dp" />
+            android:textColor="@color/default_white"
+            android:textSize="40sp" />
 
         <ImageView
             android:id="@+id/ivLaboratorio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/laboratorios"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="50sp"
+            android:src="@mipmap/laboratorios" />
 
         <EditText
             android:id="@+id/etAndar"
@@ -53,8 +53,7 @@
             android:hint="@string/capacidade"
             android:inputType="text"
             android:minWidth="270sp"
-            android:padding="10sp"
-            android:textColor="@android:color/white" />
+            android:padding="10sp" />
 
         <Button
             android:id="@+id/btnLogar"
@@ -65,8 +64,7 @@
             android:height="50sp"
             android:background="@drawable/button_salvar"
             android:onClick="salvarLaboratorio"
-            android:text="@string/salvar"
-            android:textColor="@android:color/white" />
+            android:text="@string/salvar" />
 
     </LinearLayout>
 
