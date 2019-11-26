@@ -12,4 +12,13 @@
     <string name="andar" translatable="false">Caminar</string>
     <string name="capacidade" translatable="false">Capacidad</string>
     <string name="lembreMim" translatable="false">Acuérdate de mi</string>
+    <string name="clearContentRead">"Borrar el área de contenido de lectura "</string>
+    <string name="closeFullscreen">"Salga del modo de pantalla completa "</string>
+    <string name="info">Informacion</string>
+    <string name="infoDesc">"Apunte a la ceja QRCode, es rápido;) "</string>
+    <string name="invalidCode">"Código no reconocido "</string>
+    <string name="invalidQRCode">"No es un código QR de bash remoto :( "</string>
+    <string name="lastContentRead">"Contenido de la última lectura: "</string>
+    <string name="nothingRead">"Nada leído todavía "</string>
+    <string name="requestDescription">"Tendrá que permitir el uso de la cámara, belleza? "</string>
 </resources>
