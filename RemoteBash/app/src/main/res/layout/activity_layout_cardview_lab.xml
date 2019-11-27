@@ -15,11 +15,11 @@
             android:id="@+id/ivLaboratorios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/laboratorios" />
+            android:src="@mipmap/ic_launcher_laboratorio" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10sp"
             android:orientation="vertical">
 
@@ -34,7 +34,7 @@
                 android:id="@+id/descricao_item_nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 tools:text="@string/capacidade" />
         </LinearLayout>
     </LinearLayout>

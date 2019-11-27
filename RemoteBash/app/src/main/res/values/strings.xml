@@ -5,12 +5,14 @@
     <string name="logar" translatable="false">Logar</string>
     <string name="novoLaboratorio" translatable="false">Novo Laboratório</string>
     <string name="novoComputador" translatable="false">Novo Computador</string>
-    <string name="laboratorio" translatable="false">Laboratório</string>
+    <string name="laboratorios" translatable="false">Laboratórios</string>
     <string name="descricao" translatable="false">Descrição</string>
     <string name="salvar" translatable="false">Salvar</string>
     <string name="cancelar" translatable="false">Cancelar</string>
     <string name="lembreMim" translatable="false">Lembre-se de Mim</string>
     <string name="andar" translatable="false">Andar</string>
     <string name="capacidade" translatable="false">Capacidade</string>
-    <string name="add" translatable="false">+</string>
+    <string name="computadores" translatable="false">Computadores</string>
+    <string name="comando" translatable="false">Comando</string>
+    <string name="executar" translatable="false">Executar</string>
 </resources>

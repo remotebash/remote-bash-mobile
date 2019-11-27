@@ -13,11 +13,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.remotebash.adapter.LaboratorioListAdapter
 import com.remotebash.model.LaboratorioModel
 import com.remotebash.retrofit.RetrofitInitializer
-import kotlinx.android.synthetic.main.activity_laboratorio.*
+import kotlinx.android.synthetic.main.activity_laboratorios.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.Exception
 
 class Laboratorio : AppCompatActivity() {
 
@@ -26,7 +25,7 @@ class Laboratorio : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_laboratorio)
+        setContentView(R.layout.activity_laboratorios)
 
         preferencias = getSharedPreferences("remotebash", Context.MODE_PRIVATE)
         editPreferencias = preferencias?.edit()

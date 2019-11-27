@@ -68,6 +68,9 @@ class MainActivity : AppCompatActivity() {
                                     editPreferencias?.putLong("idUsuario", it?.id!!)
                                     editPreferencias?.commit()
                                 }
+                                Toast.makeText(this@MainActivity,
+                                        "Bem vindo ${it?.name} a RemoteBash",
+                                        Toast.LENGTH_LONG).show()
                                 startActivity(laboratorio)
 
                             } else {

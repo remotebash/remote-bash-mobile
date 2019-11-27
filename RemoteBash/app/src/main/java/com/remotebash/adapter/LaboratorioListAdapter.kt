@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.remotebash.R
 import com.remotebash.model.LaboratorioModel
-import kotlinx.android.synthetic.main.activity_layout_cardview.view.*
+import kotlinx.android.synthetic.main.activity_layout_cardview_lab.view.*
 
 class LaboratorioListAdapter(private val listLab: List<LaboratorioModel>,
                              private val context: Context
@@ -20,7 +20,7 @@ class LaboratorioListAdapter(private val listLab: List<LaboratorioModel>,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.activity_layout_cardview, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.activity_layout_cardview_lab, parent, false)
         return ViewHolder(view)
     }
 

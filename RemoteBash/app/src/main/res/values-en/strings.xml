@@ -5,11 +5,14 @@
     <string name="senha" translatable="false">Password</string>
     <string name="usuario" translatable="false">User</string>
     <string name="logar" translatable="false">Login</string>
-    <string name="laboratorio" translatable="false">Laboratory</string>
+    <string name="laboratorios" translatable="false">Laboratories</string>
     <string name="descricao" translatable="false">Description</string>
     <string name="salvar" translatable="false">Save</string>
     <string name="cancelar" translatable="false">Cancel</string>
     <string name="andar" translatable="false">Floor</string>
     <string name="capacidade" translatable="false">Capacity</string>
     <string name="lembreMim" translatable="false">Remember me</string>
+    <string name="computadores" translatable="false">Computers</string>
+    <string name="comando" translatable="false">Command</string>
+    <string name="executar" translatable="false">Run</string>
 </resources>
