@@ -5,28 +5,27 @@
     <string name="logar">Logar</string>
     <string name="novoLaboratorio">Novo Laboratório</string>
     <string name="novoComputador">Novo Computador</string>
-    <string name="laboratorio">Laboratório</string>
     <string name="descricao">Descrição</string>
     <string name="salvar">Salvar</string>
     <string name="cancelar">Cancelar</string>
     <string name="lembreMim">Lembre-se de Mim</string>
-    <string name="andar">Andar</string>
-    <string name="capacidade">Capacidade</string>
+    <string name="andar" translatable="false">Andar</string>
     <string name="capacidade" translatable="false">Capacidade</string>
     <string name="computadores" translatable="false">Computadores</string>
     <string name="comando" translatable="false">Comando</string>
     <string name="executar" translatable="false">Executar</string>
-    <string name="info">Informação</string>
-    <string name="infoDesc">Aponta pro QRCode brow, é rapidinho ;)</string>
-    <string name="lastContentRead">Conteúdo da última leitura:</string>
-    <string name="nothingRead">Nada lido ainda</string>
+    <string name="info" translatable="false">Informação</string>
+    <string name="infoDesc" translatable="false">Aponta pro QRCode brow, é rapidinho ;)</string>
+    <string name="lastContentRead" translatable="false">Conteúdo da última leitura:</string>
+    <string name="nothingRead" translatable="false">Nada lido ainda</string>
     <string name="qrcodeFormat" translatable="false">Tipo barra de código: </string>
-    <string name="clearContentRead">Limpar área de conteúdo lido</string>
+    <string name="clearContentRead" translatable="false">Limpar área de conteúdo lido</string>
     <string name="registerPC" translatable="false">Cadastrar!</string>
-    <string name="invalidQRCode">Não é um QRCode da Remote-bash :(</string>
-    <string name="closeFullscreen">Sair de modo fullscreen</string>
-    <string name="requestDescription">Vai precisar permitir o uso da câmera, beleza?</string>
+    <string name="invalidQRCode" translatable="false">Não é um QRCode da Remote-bash :(</string>
+    <string name="closeFullscreen" translatable="false">Sair de modo fullscreen</string>
+    <string name="requestDescription" translatable="false">Vai precisar permitir o uso da câmera, beleza?</string>
     <string name="requestButtonOk" translatable="false">Permitir</string>
     <string name="requestButtonCancel" translatable="false">Cancelar</string>
-    <string name="invalidCode">Código não reconhecido.</string>
+    <string name="invalidCode" translatable="false">Código não reconhecido.</string>
+    <string name="laboratorios" translatable="false">Laboratórios</string>
 </resources>
