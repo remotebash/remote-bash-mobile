@@ -24,4 +24,5 @@
     <string name="lastContentRead">"Contenido de la última lectura: "</string>
     <string name="nothingRead">"Nada leído todavía "</string>
     <string name="requestDescription">"Tendrá que permitir el uso de la cámara, belleza? "</string>
+    <string name="newPCviaQRCode">Nueva Computadora - QRCode</string>
 </resources>

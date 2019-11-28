@@ -129,7 +129,7 @@ class QRCodeCam : AppCompatActivity(),
         )
 
         Database.saveResult(this, result)
-        tvContent.text = result.text
+        tvContent.text = "***********"
         processButtonOpen(result)
         zXingScanner.resumeCameraPreview(this)
     }
@@ -138,14 +138,16 @@ class QRCodeCam : AppCompatActivity(),
         if (result.text.contains("remotebash")) {
             setButtonOpenAction(resources.getString(R.string.registerPC))
             setTextViewAlert(status = false)
-
+            ivValidation.setImageDrawable(getDrawable(R.mipmap.like))
         } else if (result.text.isNullOrEmpty()) {
             setButtonOpenAction(status = false)
             setTextViewAlert(status = false)
         } else {
             setTextViewAlert(resources.getString(R.string.invalidQRCode))
             setButtonOpenAction(status = false)
+            ivValidation.setImageDrawable(getDrawable(R.mipmap.dislike))
         }
+        ivValidation.visibility = View.VISIBLE
     }
 
     private fun setButtonOpenAction(
@@ -174,5 +176,6 @@ class QRCodeCam : AppCompatActivity(),
         setButtonOpenAction(status = false)
         Database.saveResult(this)
         setTextViewAlert(status = false)
+        ivValidation.visibility = View.GONE
     }
 }

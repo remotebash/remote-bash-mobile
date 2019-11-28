@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#424242</color>
+    <color name="colorPrimaryDark">#1b1b1b</color>
+    <color name="colorAccent">#424242</color>
+    <color name="colorIconGrey">#888888</color>
+    <color name="backgroundLightGrey">#f0f0f0</color>
 
     <color name="default_err">#F44336</color>
     <color name="default_orange">#d95710</color>
@@ -10,7 +12,4 @@
     <color name="default_green">#07e43a</color>
     <color name="default_black">#000000</color>
     <color name="addComputer">#727D8F</color>
-
-    <color name="colorIconGrey">#888888</color>
-    <color name="backgroundLightGrey">#f0f0f0</color>
 </resources>
