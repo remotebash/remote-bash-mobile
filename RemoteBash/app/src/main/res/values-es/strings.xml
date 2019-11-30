@@ -5,14 +5,12 @@
     <string name="novoLaboratorio" translatable="false">Nuevo Laboratorio</string>
     <string name="senha" translatable="false">Contraseña</string>
     <string name="usuario" translatable="false">Usuario</string>
-    <string name="laboratorios" translatable="false">Laboratorio</string>
+    <string name="laboratorio" translatable="false">Laboratorio</string>
     <string name="descricao" translatable="false">Descripción</string>
     <string name="salvar" translatable="false">Guardar</string>
     <string name="cancelar" translatable="false">Cancelar</string>
-    <string name="andar" translatable="false">Caminar</string>
-    <string name="capacidade" translatable="false">Capacidad</string>
     <string name="lembreMim" translatable="false">Acuérdate de mi</string>
-    <string name="computadores">Computadoras</string>
+    <string name="computadores">Computadores</string>
     <string name="comando" translatable="false">Comando</string>
     <string name="executar" translatable="false">Correr</string>
     <string name="clearContentRead">"Borrar el área de contenido de lectura "</string>
@@ -24,4 +22,7 @@
     <string name="lastContentRead">"Contenido de la última lectura: "</string>
     <string name="nothingRead">"Nada leído todavía "</string>
     <string name="requestDescription">"Tendrá que permitir el uso de la cámara, belleza? "</string>
+    <string name="requestButtonCancel" translatable="false">Cancelar</string>
+    <string name="registerPC" translatable="false">Registrarse</string>
+    <string name="requestButtonOk" translatable="false">Permitir</string>
 </resources>

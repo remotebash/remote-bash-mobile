@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        
         preferencias = getSharedPreferences("remotebash", Context.MODE_PRIVATE)
         editPreferencias = preferencias?.edit()
 
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun toastAlert(n: Int) {
-        val mensagem: String? = when (n) {
+        val mensagem = when (n) {
             1 -> "Usuário obrigatorio!"
             2 -> "Senha obrigatorio!"
             3 -> "Usuário ou Senha inválido."

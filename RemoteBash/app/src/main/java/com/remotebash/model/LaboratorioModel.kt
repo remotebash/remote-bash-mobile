@@ -1,13 +1,14 @@
 package com.remotebash.model
 
 class LaboratorioModel() {
-    constructor(floor:String, capacity:String): this(){
-        this.floor = floor
-        this.capacity = capacity
+    constructor(nome:String, descricao:String): this(){
+        this.name = nome
+        this.description = descricao
     }
 
     var id: Long? = null
-    var floor: String? = null
-    var capacity: String? = null
+    var name: String? = null
+    var description: String? = null
+    val user: UsuarioModel? = null
 
 }

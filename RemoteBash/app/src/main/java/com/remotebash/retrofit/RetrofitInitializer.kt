@@ -8,13 +8,15 @@ import com.google.gson.GsonBuilder
 
 class RetrofitInitializer {
 
+    /*
     val gson = GsonBuilder()
             .setLenient()
             .create()
+    */
 
     private val retrofit = Retrofit.Builder()
         .baseUrl("http://3.94.151.158:8082/")
-        .addConverterFactory(GsonConverterFactory.create(gson))
+        .addConverterFactory(GsonConverterFactory.create(/*gson*/))
         .build()
 
     //single-expression function

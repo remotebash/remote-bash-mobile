@@ -11,6 +11,6 @@ interface LaboratorioService {
     fun listLaboratorio(): Call<List<LaboratorioModel>>
 
     @POST("register/laboratories")
-    fun addLaboratorio(@Body laboratorio: LaboratorioModel): Call<String>
+    fun addLaboratorio(@Body laboratorio: LaboratorioModel): Call<LaboratorioModel>
 }
 

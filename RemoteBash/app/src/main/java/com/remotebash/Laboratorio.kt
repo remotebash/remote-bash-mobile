@@ -47,6 +47,7 @@ class Laboratorio : AppCompatActivity() {
             }
 
         })
+
     }
 
     fun newLaboratorio(v: View) {

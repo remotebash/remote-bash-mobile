@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="@string/laboratorios"
+            app:title="@string/laboratorio"
             android:layout_height="wrap_content"
             />
     </com.google.android.material.appbar.AppBarLayout>
@@ -37,7 +37,7 @@
         android:layout_marginBottom="16sp"
         app:backgroundTint="@color/default_white"
         android:tint="@color/default_orange"
-        android:src="@drawable/ic_add_black_24dp"
+        android:src="@drawable/ic_add"
         android:onClick="newLaboratorio"
         android:layout_height="wrap_content"
         />

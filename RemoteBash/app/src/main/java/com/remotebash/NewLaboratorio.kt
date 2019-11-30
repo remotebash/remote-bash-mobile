@@ -23,18 +23,18 @@ class NewLaboratorio : AppCompatActivity() {
         if (etAndar.text.isNullOrBlank()) {
             etAndar.setBackgroundColor(R.drawable.edit_text_login_err)
             etAndar.requestFocus()
-            Toast.makeText(this, "Andar Obrigatorio!!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Nome Computador Obrigatorio!!", Toast.LENGTH_SHORT).show()
         } else {
             val laboratorio = LaboratorioModel(etAndar.text.toString(), etCapacidade.text.toString())
             val callAddLaboratorios = RetrofitInitializer().laboratorioService().addLaboratorio(laboratorio)
 
-            callAddLaboratorios.enqueue(object : Callback<String> {
-                override fun onFailure(call: Call<String>, t: Throwable) {
+            callAddLaboratorios.enqueue(object : Callback<LaboratorioModel> {
+                override fun onFailure(call: Call<LaboratorioModel>, t: Throwable) {
                     Log.e("onFailure addLab error", t.toString())
                     Toast.makeText(this@NewLaboratorio, "Erro de conexão", Toast.LENGTH_SHORT).show()
                 }
 
-                override fun onResponse(call: Call<String>, response: Response<String>) {
+                override fun onResponse(call: Call<LaboratorioModel>, response: Response<LaboratorioModel>) {
                     response.body()?.let {
                         Toast.makeText(this@NewLaboratorio, "Laboratório cadastrado com sucesso!", Toast.LENGTH_LONG).show()
                         onBackPressed()

@@ -25,31 +25,45 @@
             android:layout_below="@id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="625sp"
             android:scrollbars="vertical"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_alignParentBottom="true">
-    <EditText
-        android:id="@+id/etComando"
-        android:layout_width="@android:dimen/thumbnail_width"
-        android:layout_height="@android:dimen/thumbnail_height"
-        android:background="@drawable/edit_text_none"
-        android:gravity="top"
-        android:textColor="@color/default_white"
-        android:textCursorDrawable="@drawable/cursor"
-        android:scrollbars="vertical"
-        android:layout_marginLeft="10sp"/>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="5sp"
+        android:paddingLeft="10sp"
+        android:paddingRight="5sp">
 
-    <Button
-        android:id="@+id/btnExecutar"
-        android:layout_width="@android:dimen/thumbnail_width"
-        android:layout_height="wrap_content"
-        android:layout_margin="10sp"
-        android:background="@drawable/button_login"
-        android:text="@string/executar" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/footer_section"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
 
+        <EditText
+            android:id="@+id/etComando"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text_login"
+            android:layout_weight="1"
+            android:inputType="textMultiLine"
+            android:minLines="1"
+            android:maxLines="4"
+            android:layout_marginRight="5sp"/>
+
+        <ImageButton
+            android:id="@+id/btSend"
+            android:layout_height="match_parent"
+            android:layout_width="48dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_send"
+            android:backgroundTint="@color/addComputer"
+            />
+        </LinearLayout>
+
+
+    </RelativeLayout>
 </RelativeLayout>
