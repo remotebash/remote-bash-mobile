@@ -6,6 +6,6 @@
 
     <stroke
         android:width="5dp"
-        android:color="@color/colorAccent" />
+        android:color="@color/default_green" />
 
 </shape>

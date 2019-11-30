@@ -5,7 +5,6 @@
     <string name="novoLaboratorio" translatable="false">Nuevo Laboratorio</string>
     <string name="senha" translatable="false">Contraseña</string>
     <string name="usuario" translatable="false">Usuario</string>
-    <string name="laboratorio" translatable="false">Laboratorio</string>
     <string name="descricao" translatable="false">Descripción</string>
     <string name="salvar" translatable="false">Guardar</string>
     <string name="cancelar" translatable="false">Cancelar</string>
@@ -25,4 +24,6 @@
     <string name="requestButtonCancel" translatable="false">Cancelar</string>
     <string name="registerPC" translatable="false">Registrarse</string>
     <string name="requestButtonOk" translatable="false">Permitir</string>
+    <string name="newPCviaQRCode">Nueva Computadora - QRCode</string>
+    <string name="laboratorios">Laboratorios</string>
 </resources>

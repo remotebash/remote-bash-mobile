@@ -9,28 +9,27 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         android:layout_height="wrap_content"
-        >
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="@string/laboratorio"
             android:layout_height="wrap_content"
-            />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/laboratorios" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLaboratorios"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/app_bar"/>
+        android:layout_below="@id/app_bar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="16sp"
@@ -39,7 +38,6 @@
         android:tint="@color/default_orange"
         android:src="@drawable/ic_add"
         android:onClick="newLaboratorio"
-        android:layout_height="wrap_content"
         />
 
 </RelativeLayout>
