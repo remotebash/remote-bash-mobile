@@ -34,29 +34,36 @@ class CommandLine : AppCompatActivity() {
         val idUsuario = preferencias!!.getInt("idUsuario", 2)
         val idComputador = intent.getIntExtra("idComputador", 2)
 
-        Toast.makeText(this@CommandLine, "${idUsuario} ${idComputador}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@CommandLine, "usuario: ${idUsuario} computador: ${idComputador}", Toast.LENGTH_LONG).show()
         val comandoModel = ComandoModel(comando, idComputador, "Windows", idUsuario)
 
         val callCommandLine = RetrofitInitializer().comandoService().enviarComando(comandoModel)
         callCommandLine.enqueue(object : Callback<ComandoModel> {
             override fun onFailure(call: Call<ComandoModel>, t: Throwable) {
                 Log.e("onFailure command error", t.toString())
-                val campoRetorno = tvRetorno.text.toString()
-                campoRetorno.plus("\nOlá mundo")
-                tvRetorno.text = campoRetorno
-                etComando.setText("")
                 Toast.makeText(this@CommandLine, "Erro de conexão", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<ComandoModel>, response: Response<ComandoModel>) {
-                response.body()?.let {
-                    Toast.makeText(this@CommandLine, "${it.command}", Toast.LENGTH_SHORT).show()
+                if(response.code() == 200) {
+                    response.body()?.let {
 
-                    val campoRetorno = tvRetorno.text.toString()
-                    campoRetorno.plus("\n"+it.command).plus("\n" + it.result)
-                    tvRetorno.text = campoRetorno
-                    etComando.setText("")
-                    Toast.makeText(this@CommandLine, "Comando executado", Toast.LENGTH_SHORT).show()
+                        val campoRetorno = tvRetorno.text.toString()
+                        campoRetorno.plus("\n" + it.command).plus("\n" + it.result)
+                        tvRetorno.setText(campoRetorno)
+                        etComando.setText("")
+                        Toast.makeText(this@CommandLine, "Comando executado", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                } else {
+                    response.errorBody()?.let {
+
+                        Log.e("Response 400", it.string())
+                        var campoRetorno = tvRetorno.text.toString()
+                        campoRetorno.plus("\nO computador não está online.")
+                        tvRetorno.setText(campoRetorno)
+                        etComando.setText("")
+                    }
                 }
             }
 

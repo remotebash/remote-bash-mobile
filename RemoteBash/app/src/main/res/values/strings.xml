@@ -21,11 +21,11 @@
     <string name="qrcodeFormat" translatable="false">"Tipo barra de código: "</string>
     <string name="clearContentRead" translatable="false">Limpar área de conteúdo lido</string>
     <string name="registerPC" translatable="false">Cadastrar!</string>
-    <string name="invalidQRCode" translatable="false">não é um QRCode da Remote-bash :(</string>
+    <string name="invalidQRCode" translatable="false">Não é um QRCode da Remote-bash :(</string>
     <string name="closeFullscreen" translatable="false">Sair de modo fullscreen</string>
     <string name="requestDescription" translatable="false">Vai precisar permitir o uso da câmera, beleza?</string>
     <string name="requestButtonOk" translatable="false">Permitir</string>
     <string name="requestButtonCancel" translatable="false">Cancelar</string>
-    <string name="invalidCode" translatable="false">código não reconhecido.</string>
+    <string name="invalidCode" translatable="false">Código não reconhecido.</string>
     <string name="laboratorios" translatable="false">Laboratórios</string>
 </resources>

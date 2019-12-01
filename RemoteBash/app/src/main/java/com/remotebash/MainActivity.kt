@@ -63,9 +63,9 @@ class MainActivity : AppCompatActivity() {
                         response.body().let {
                             if (email.text.toString() == "remote" && senha.text.toString() == "bash" || it != null) {
                                 val laboratorio = Intent(this@MainActivity, Laboratorio::class.java)
+                                    editPreferencias?.putInt("idUsuario", it?.id!!.toInt())
                                 if (swHabilitado.isChecked) {
                                     editPreferencias?.putBoolean("autenticado", true)
-                                    editPreferencias?.putInt("idUsuario", it?.id!!)
                                     editPreferencias?.putString("name", it?.name)
                                     editPreferencias?.putString("address", it?.address)
                                     editPreferencias?.putString("cellphone", it?.cellphone)
