@@ -14,4 +14,7 @@ class UsuarioModel() {
     var email:String? = null
     var address:String? = null
 
+    override fun toString(): String {
+        return String.format("id:%d, nome:%s, celular:%s, email:%s, endereço:%s", id, name, cellphone, email, address)
+    }
 }

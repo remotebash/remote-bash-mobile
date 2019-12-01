@@ -27,4 +27,7 @@
     <string name="clearContentRead" translatable="false">Clear read content area</string>
     <string name="cancelar" translatable="false">Cancel</string>
     <string name="qrcodeFormat" translatable="false">Code Bar Type:</string>
+    <string name="bemVindo">" Welcome %s to RemoteBash"</string>
+    <string name="erroConexao">Connection error</string>
+    <string name="ocorreuError">An error has occurred</string>
 </resources>

@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 callUsuario.enqueue(object : Callback<UsuarioModel> {
                     override fun onFailure(call: Call<UsuarioModel>, t: Throwable) {
                         Log.e("onFailure main error", t.toString())
-                        Toast.makeText(this@MainActivity, "Erro de conexão", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MainActivity, getString(R.string.erroConexao), Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onResponse(call: Call<UsuarioModel>, response: Response<UsuarioModel>) {
@@ -70,10 +70,10 @@ class MainActivity : AppCompatActivity() {
                                     editPreferencias?.putString("address", it?.address)
                                     editPreferencias?.putString("cellphone", it?.cellphone)
                                     editPreferencias?.putString("email", it?.email)
-                                    editPreferencias?.commit()
                                 }
+                                editPreferencias?.commit()
                                 Toast.makeText(this@MainActivity,
-                                        "Bem vindo ${it?.name} a RemoteBash",
+                                        getString(R.string.bemVindo, it?.name),
                                         Toast.LENGTH_LONG).show()
                                 startActivity(laboratorio)
 

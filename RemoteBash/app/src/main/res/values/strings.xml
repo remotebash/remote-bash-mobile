@@ -28,4 +28,7 @@
     <string name="requestButtonCancel" translatable="false">Cancelar</string>
     <string name="invalidCode" translatable="false">Código não reconhecido.</string>
     <string name="laboratorios" translatable="false">Laboratórios</string>
+    <string name="bemVindo" translatable="false">Bem vindo %s a RemoteBash</string>
+    <string name="erroConexao" translatable="false">Erro de conexão</string>
+    <string name="ocorreuError" translatable="false">Ocorreu um erro</string>
 </resources>

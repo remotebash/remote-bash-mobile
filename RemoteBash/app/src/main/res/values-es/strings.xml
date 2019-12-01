@@ -27,4 +27,7 @@
     <string name="clearContentRead" translatable="false">"Borrar el área de contenido de lectura "</string>
     <string name="cancelar" translatable="false">Cancelar</string>
     <string name="qrcodeFormat" translatable="false">Tipo de barra de código:</string>
+    <string name="bemVindo">Bienvenido %s a RemoteBash</string>
+    <string name="erroConexao">Error de conexión</string>
+    <string name="ocorreuError">Ocurrio un error</string>
 </resources>

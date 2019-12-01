@@ -10,14 +10,16 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="@string/comando" />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/comando" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <RelativeLayout
@@ -49,17 +51,17 @@
             android:layout_marginBottom="10sp"
             android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/etComando"
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:background="@drawable/edit_text_login"
-            android:layout_weight="1"
-            android:inputType="textMultiLine"
-            android:minLines="1"
-            android:maxLines="4"
-            android:layout_marginEnd="5sp"
-            android:textCursorDrawable="@drawable/cursor_text_view"/>
+            <EditText
+                android:id="@+id/etComando"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5sp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_login"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:minLines="1"
+                android:textCursorDrawable="@drawable/cursor_text_view" />
 
             <ImageButton
                 android:id="@+id/btSend"
@@ -69,6 +71,7 @@
                 android:backgroundTint="@color/default_white"
                 android:onClick="enviarComnado"
                 android:src="@drawable/ic_send" />
+
         </LinearLayout>
 
 

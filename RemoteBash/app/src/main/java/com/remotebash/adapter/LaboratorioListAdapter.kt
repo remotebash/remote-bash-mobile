@@ -25,10 +25,10 @@ class LaboratorioListAdapter(
 
         holder.itemView.setOnClickListener {
             it.setOnClickListener {
-                Toast.makeText(it.context, "Laboratorio ${position + 1}", Toast.LENGTH_SHORT).show()
-                val computador = Intent(it.context, Computadores::class.java)
+                Toast.makeText(context, "Laboratorio ${position + 1}", Toast.LENGTH_SHORT).show()
+                val computador = Intent(context, Computadores::class.java)
                 computador.putExtra("idLaboratorio", listLab[position].id.toString())
-                startActivity(it.context, computador, null)
+                startActivity(context, computador, null)
             }
         }
     }
