@@ -3,7 +3,7 @@
     <string name="app_name" translatable="false">Remote Bash</string>
     <string name="usuario">usuário</string>
     <string name="senha">senha</string>
-    <string name="logar">entrar</string>
+    <string name="logar">Entrar</string>
     <string name="novoLaboratorio">Novo Laboratório</string>
     <string name="novoComputador">Novo Computador</string>
     <string name="newPCviaQRCode" translatable="false">Novo computador - QRCode</string>

@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Command_Line"></activity>
+        <activity android:name=".CommandLine"></activity>
         <activity android:name=".Computadores" />
         <activity android:name=".MainActivity">
             <intent-filter>

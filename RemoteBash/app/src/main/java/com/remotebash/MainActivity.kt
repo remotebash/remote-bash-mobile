@@ -65,7 +65,11 @@ class MainActivity : AppCompatActivity() {
                                 val laboratorio = Intent(this@MainActivity, Laboratorio::class.java)
                                 if (swHabilitado.isChecked) {
                                     editPreferencias?.putBoolean("autenticado", true)
-                                    editPreferencias?.putLong("idUsuario", it?.id!!)
+                                    editPreferencias?.putInt("idUsuario", it?.id!!)
+                                    editPreferencias?.putString("name", it?.name)
+                                    editPreferencias?.putString("address", it?.address)
+                                    editPreferencias?.putString("cellphone", it?.cellphone)
+                                    editPreferencias?.putString("email", it?.email)
                                     editPreferencias?.commit()
                                 }
                                 Toast.makeText(this@MainActivity,

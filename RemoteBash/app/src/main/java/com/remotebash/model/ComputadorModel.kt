@@ -1,6 +1,6 @@
 package com.remotebash.model
 
-class Computer {
+class ComputadorModel {
 
     var id:Long? = null
     var macaddress:String? = null

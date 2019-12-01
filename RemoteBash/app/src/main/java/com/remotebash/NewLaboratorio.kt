@@ -1,11 +1,14 @@
 package com.remotebash
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.remotebash.model.LaboratorioModel
+import com.remotebash.model.UsuarioModel
 import com.remotebash.retrofit.RetrofitInitializer
 import kotlinx.android.synthetic.main.activity_new_laboratorio.*
 import retrofit2.Call
@@ -14,9 +17,15 @@ import retrofit2.Response
 
 class NewLaboratorio : AppCompatActivity() {
 
+    var preferencias: SharedPreferences? = null
+    var editPreferencias: SharedPreferences.Editor? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_laboratorio)
+
+        preferencias = getSharedPreferences("remotebash", Context.MODE_PRIVATE)
+        editPreferencias = preferencias?.edit()
     }
 
     fun salvarLaboratorio(v: View) {
@@ -25,6 +34,14 @@ class NewLaboratorio : AppCompatActivity() {
             etAndar.requestFocus()
             Toast.makeText(this, "Nome Computador Obrigatorio!!", Toast.LENGTH_SHORT).show()
         } else {
+
+            /*var usuarioModel = UsuarioModel()
+            usuarioModel.id = preferencias!!.getLong("idUsuario", 0L)
+            usuarioModel.name = preferencias!!.getString("name", null)
+            usuarioModel.cellphone = preferencias!!.getString("cellphone", null)
+            usuarioModel.email = preferencias!!.getString("email", null)
+            usuarioModel.address = preferencias!!.getString("address", null)*/
+
             val laboratorio = LaboratorioModel(etAndar.text.toString(), etCapacidade.text.toString())
             val callAddLaboratorios = RetrofitInitializer().laboratorioService().addLaboratorio(laboratorio)
 

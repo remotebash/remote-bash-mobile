@@ -12,7 +12,7 @@
     <string name="computadores" translatable="false">Computers</string>
     <string name="comando" translatable="false">Command</string>
     <string name="executar" translatable="false">Run</string>
-    <string name="clearContentRead">" Clear read content area"</string>
+    <string name="clearContentRead">Clear read content area</string>
     <string name="closeFullscreen">"Exit fullscreen mode "</string>
     <string name="info">Information</string>
     <string name="infoDesc">"Point to the QR Code, it's fast;) "</string>
