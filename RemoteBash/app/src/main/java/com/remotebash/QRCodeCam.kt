@@ -19,6 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class QRCodeCam : AppCompatActivity(),
     ZXingScannerView.ResultHandler,
     EasyPermissions.PermissionCallbacks {
@@ -134,6 +135,7 @@ class QRCodeCam : AppCompatActivity(),
         )
 
         Database.saveResult(this, result)
+        tvContent.text = "********"
         processButtonOpen(result)
         zXingScanner.resumeCameraPreview(this)
     }
@@ -144,54 +146,57 @@ class QRCodeCam : AppCompatActivity(),
             setTextViewAlert(status = false)
             ivValidation.setImageDrawable(getDrawable(R.mipmap.like))
             btnRegister.setOnClickListener {
-                var delimiter = ";"
-                var parts = result.toString().split(delimiter)
-                val ip = parts[1]
-                val operationalSystem = parts[2]
-                val ramMemory = parts[3]
-                val hdTotal = parts[4]
-                val hdUsage = parts[5]
-                val processorModel = parts[6]
-                val macaddress = parts[7]
+                btnRegister.setOnClickListener {
+                    var delimiter = ";"
+                    var parts = result.toString().split(delimiter)
 
-                val computador =
-                    ComputadorModel(
-                        ip,
-                        operationalSystem,
-                        ramMemory,
-                        hdTotal,
-                        hdUsage,
-                        processorModel,
-                        macaddress
-                    )
+                    val macaddress = parts[2]
+                    val ip = parts[3]
+                    val operationalSystem = parts[4]
+                    val ramMemory = parts[5]
+                    val hdTotal = parts[6]
+                    val hdUsage = parts[7]
+                    val processorModel = parts[8]
 
-                val callAddComputers =
-                    RetrofitInitializer().computadorService().addComputador(computador)
+                    val computador =
+                        ComputadorModel(
+                            ip,
+                            operationalSystem,
+                            ramMemory,
+                            hdTotal,
+                            hdUsage,
+                            processorModel,
+                            macaddress
+                        )
 
-                callAddComputers.enqueue(object : Callback<ComputadorModel> {
-                    override fun onFailure(call: Call<ComputadorModel>, t: Throwable) {
-                        Log.e("onFailure addLab error", t.toString())
-                        Toast.makeText(this@QRCodeCam, "Erro de conexão", Toast.LENGTH_SHORT).show()
-                    }
+                    val callAddComputers =
+                        RetrofitInitializer().computadorService().addComputador(computador)
 
-                    override fun onResponse(
-                        call: Call<ComputadorModel>,
-                        response: Response<ComputadorModel>
-                    ) {
-                        response.body()?.let {
-                            Toast.makeText(
-                                this@QRCodeCam,
-                                "Computador cadastrado com sucesso!",
-                                Toast.LENGTH_LONG
-                            ).show()
-                            clearContent()
-                            onBackPressed()
+                    callAddComputers.enqueue(object : Callback<ComputadorModel> {
+                        override fun onFailure(call: Call<ComputadorModel>, t: Throwable) {
+                            Log.e("onFailure addLab error", t.toString())
+                            Toast.makeText(this@QRCodeCam, "Erro de conexão", Toast.LENGTH_SHORT)
+                                .show()
                         }
-                    }
 
-                })
+                        override fun onResponse(
+                            call: Call<ComputadorModel>,
+                            response: Response<ComputadorModel>
+                        ) {
+                            response.body()?.let {
+                                Toast.makeText(
+                                    this@QRCodeCam,
+                                    "Computador cadastrado com sucesso!",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                clearContent()
+                                onBackPressed()
+                            }
+                        }
+
+                    })
+                }
             }
-
         } else if (result.text.isNullOrEmpty()) {
             setButtonOpenAction(status = false)
             setTextViewAlert(status = false)
@@ -220,11 +225,12 @@ class QRCodeCam : AppCompatActivity(),
     }
 
 
-    private fun clearContent(view: View? = null) {
+    fun clearContent(view: View? = null) {
         tvContent.text = getString(R.string.nothingRead)
         setButtonOpenAction(status = false)
         Database.saveResult(this)
         setTextViewAlert(status = false)
         ivValidation.visibility = View.GONE
     }
+
 }

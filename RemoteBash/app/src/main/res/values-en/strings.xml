@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="novoComputador" translatable="false">New Computer</string>
-    <string name="novoLaboratorio" translatable="false">New Laboratory</string>
+    <string name="novoComputador" translatable="false">new Computer</string>
+    <string name="novoLaboratorio" translatable="false">new Laboratory</string>
     <string name="senha" translatable="false">Password</string>
     <string name="usuario" translatable="false">User</string>
-    <string name="logar" translatable="false">Login</string>
-    <string name="descricao" translatable="false">Description</string>
+    <string name="logar" translatable="false">login</string>
+    <string name="descricao" translatable="false">description</string>
     <string name="salvar" translatable="false">Save</string>
-    <string name="cancelar" translatable="false">Cancel</string>
-    <string name="lembreMim" translatable="false">Remember me</string>
-    <string name="computadores" translatable="false">Computers</string>
-    <string name="comando" translatable="false">Command</string>
-    <string name="executar" translatable="false">Run</string>
-    <string name="clearContentRead">" Clear read content area"</string>
-    <string name="closeFullscreen">"Exit fullscreen mode "</string>
-    <string name="info">Information</string>
-    <string name="infoDesc">"Point to the QR Code, it's fast;) "</string>
-    <string name="invalidCode">"Code not recognized. "</string>
-    <string name="invalidQRCode">"Not a Remote-bash QRCode :( "</string>
-    <string name="lastContentRead">"Contents of last reading: "</string>
-    <string name="nothingRead">"Nothing read yet "</string>
+    <string name="cancelar" translatable="false">cancel</string>
+    <string name="lembreMim" translatable="false">remember me</string>
+    <string name="computadores" translatable="false">computers</string>
+    <string name="comando" translatable="false">command</string>
+    <string name="executar" translatable="false">run</string>
+    <string name="clearContentRead">clear read content area</string>
+    <string name="closeFullscreen">"exit fullscreen mode "</string>
+    <string name="info">information</string>
+    <string name="infoDesc">"point to the QR Code, it's fast;) "</string>
+    <string name="invalidCode">"code not recognized. "</string>
+    <string name="invalidQRCode">"not a Remote-bash QRCode :( "</string>
+    <string name="lastContentRead">"contents of last reading: "</string>
+    <string name="nothingRead">"nothing read yet "</string>
     <string name="requestDescription">"Will need to allow the use of the camera, beauty? "</string>
     <string name="requestButtonCancel" translatable="false">Cancel</string>
     <string name="registerPC" translatable="false">Register</string>
     <string name="requestButtonOk" translatable="false">Enable</string>
-    <string name="newPCviaQRCode">New computer - QRCode</string>
-    <string name="laboratorios">Laboratories</string>
+    <string name="newPCviaQRCode">new computer - QRCode</string>
+    <string name="laboratorios">laboratories</string>
 </resources>

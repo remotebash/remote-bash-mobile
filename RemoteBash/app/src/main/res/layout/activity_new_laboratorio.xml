@@ -51,7 +51,8 @@
                 android:hint="@string/computadores"
                 android:inputType="text"
                 android:minWidth="270sp"
-                android:padding="10sp" />
+                android:padding="10sp"
+                android:textCursorDrawable="@drawable/cursor_text_view"/>
 
             <EditText
                 android:id="@+id/etCapacidade"
@@ -63,7 +64,8 @@
                 android:hint="@string/descricao"
                 android:inputType="text"
                 android:minWidth="270sp"
-                android:padding="10sp" />
+                android:padding="10sp"
+                android:textCursorDrawable="@drawable/cursor_text_view"/>
 
             <Button
                 android:id="@+id/btnLogar"

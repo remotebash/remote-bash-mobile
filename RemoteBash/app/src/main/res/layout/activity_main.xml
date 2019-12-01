@@ -36,6 +36,7 @@
                 android:minWidth="180sp"
                 android:onClick="focus"
                 android:padding="10sp"
+                android:textCursorDrawable="@drawable/cursor_text_view"
                 app:layout_constraintTop_toBottomOf="@+id/imageRemoteBash" />
 
             <EditText
@@ -49,6 +50,7 @@
                 android:minWidth="180sp"
                 android:onClick="focus"
                 android:padding="10sp"
+                android:textCursorDrawable="@drawable/cursor_text_view"
                 app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
             <Switch

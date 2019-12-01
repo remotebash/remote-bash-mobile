@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="novoComputador" translatable="false">Nueva Computadora</string>
-    <string name="logar" translatable="false">Iniciar Sesión</string>
-    <string name="novoLaboratorio" translatable="false">Nuevo Laboratorio</string>
+    <string name="novoComputador" translatable="false">nueva Computadora</string>
+    <string name="logar" translatable="false">iniciar Sesión</string>
+    <string name="novoLaboratorio" translatable="false">nuevo Laboratorio</string>
     <string name="senha" translatable="false">Contraseña</string>
     <string name="usuario" translatable="false">Usuario</string>
-    <string name="descricao" translatable="false">Descripción</string>
+    <string name="descricao" translatable="false">descripción</string>
     <string name="salvar" translatable="false">Guardar</string>
-    <string name="cancelar" translatable="false">Cancelar</string>
-    <string name="lembreMim" translatable="false">Acuérdate de mi</string>
-    <string name="computadores">Computadores</string>
-    <string name="comando" translatable="false">Comando</string>
-    <string name="executar" translatable="false">Correr</string>
-    <string name="clearContentRead">"Borrar el área de contenido de lectura "</string>
-    <string name="closeFullscreen">"Salga del modo de pantalla completa "</string>
-    <string name="info">Informacion</string>
-    <string name="infoDesc">"Apunte a la ceja QRCode, es rápido;) "</string>
-    <string name="invalidCode">"Código no reconocido "</string>
-    <string name="invalidQRCode">"No es un código QR de bash remoto :( "</string>
-    <string name="lastContentRead">"Contenido de la última lectura: "</string>
-    <string name="nothingRead">"Nada leído todavía "</string>
+    <string name="cancelar" translatable="false">cancelar</string>
+    <string name="lembreMim" translatable="false">acuérdate de mi</string>
+    <string name="computadores">computadores</string>
+    <string name="comando" translatable="false">comando</string>
+    <string name="executar" translatable="false">executable</string>
+    <string name="clearContentRead">"borrar el área de contenido de lectura "</string>
+    <string name="closeFullscreen">"salga del modo de pantalla completa "</string>
+    <string name="info">informacion</string>
+    <string name="infoDesc">"apunte a la ceja QRCode, es rápido;) "</string>
+    <string name="invalidCode">"código no reconocido "</string>
+    <string name="invalidQRCode">"no es un código QR de bash remoto :( "</string>
+    <string name="lastContentRead">"contenido de la última lectura: "</string>
+    <string name="nothingRead">"nada leído todavía "</string>
     <string name="requestDescription">"Tendrá que permitir el uso de la cámara, belleza? "</string>
     <string name="requestButtonCancel" translatable="false">Cancelar</string>
     <string name="registerPC" translatable="false">Registrarse</string>
     <string name="requestButtonOk" translatable="false">Permitir</string>
-    <string name="newPCviaQRCode">Nueva Computadora - QRCode</string>
-    <string name="laboratorios">Laboratorios</string>
+    <string name="newPCviaQRCode">nueva Computadora - QRCode</string>
+    <string name="laboratorios">laboratorios</string>
 </resources>

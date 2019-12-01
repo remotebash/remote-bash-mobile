@@ -52,7 +52,8 @@
             android:inputType="textMultiLine"
             android:minLines="1"
             android:maxLines="4"
-            android:layout_marginRight="5sp"/>
+            android:layout_marginRight="5sp"
+            android:textCursorDrawable="@drawable/cursor_text_view"/>
 
         <ImageButton
             android:id="@+id/btSend"
