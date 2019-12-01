@@ -23,7 +23,7 @@ class NewLaboratorio : AppCompatActivity() {
         if (etAndar.text.isNullOrBlank()) {
             etAndar.setBackgroundColor(R.drawable.edit_text_login_err)
             etAndar.requestFocus()
-            Toast.makeText(this, "Nome Computador Obrigatorio!!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Nome Computador Obrigatorio!", Toast.LENGTH_SHORT).show()
         } else {
             val laboratorio = LaboratorioModel(etAndar.text.toString(), etCapacidade.text.toString())
             val callAddLaboratorios = RetrofitInitializer().laboratorioService().addLaboratorio(laboratorio)

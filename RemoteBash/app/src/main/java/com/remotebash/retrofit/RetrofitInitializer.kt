@@ -5,6 +5,7 @@ import retrofit2.Retrofit
 import com.remotebash.retrofit.service.UsuarioService
 import retrofit2.converter.gson.GsonConverterFactory
 import com.google.gson.GsonBuilder
+import com.remotebash.retrofit.service.ComputadorService
 
 class RetrofitInitializer {
 
@@ -23,5 +24,7 @@ class RetrofitInitializer {
     fun laboratorioService() = retrofit.create(LaboratorioService::class.java)
 
     fun usuarioService() = retrofit.create(UsuarioService::class.java)
+    
+    fun computadorService() = retrofit.create(ComputadorService::class.java)
 
 }
