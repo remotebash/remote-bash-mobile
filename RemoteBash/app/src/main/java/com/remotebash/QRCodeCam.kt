@@ -2,16 +2,22 @@ package com.remotebash
 
 import android.Manifest
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.Result
+import com.remotebash.model.ComputadorModel
+import com.remotebash.retrofit.RetrofitInitializer
 import com.remotebash.util.*
 import kotlinx.android.synthetic.main.activity_qrcode.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 import pub.devrel.easypermissions.EasyPermissions
 import pub.devrel.easypermissions.PermissionRequest
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class QRCodeCam : AppCompatActivity(),
@@ -129,7 +135,7 @@ class QRCodeCam : AppCompatActivity(),
         )
 
         Database.saveResult(this, result)
-        tvContent.text = "***********"
+        tvContent.text = "********"
         processButtonOpen(result)
         zXingScanner.resumeCameraPreview(this)
     }
@@ -139,6 +145,58 @@ class QRCodeCam : AppCompatActivity(),
             setButtonOpenAction(resources.getString(R.string.registerPC))
             setTextViewAlert(status = false)
             ivValidation.setImageDrawable(getDrawable(R.mipmap.like))
+            btnRegister.setOnClickListener {
+                btnRegister.setOnClickListener {
+                    var delimiter = ";"
+                    var parts = result.toString().split(delimiter)
+
+                    val macaddress = parts[2]
+                    val ip = parts[3]
+                    val operationalSystem = parts[4]
+                    val ramMemory = parts[5]
+                    val hdTotal = parts[6]
+                    val hdUsage = parts[7]
+                    val processorModel = parts[8]
+
+                    val computador =
+                        ComputadorModel(
+                            ip,
+                            operationalSystem,
+                            ramMemory,
+                            hdTotal,
+                            hdUsage,
+                            processorModel,
+                            macaddress
+                        )
+
+                    val callAddComputers =
+                        RetrofitInitializer().computadorService().addComputador(computador)
+
+                    callAddComputers.enqueue(object : Callback<ComputadorModel> {
+                        override fun onFailure(call: Call<ComputadorModel>, t: Throwable) {
+                            Log.e("onFailure addLab error", t.toString())
+                            Toast.makeText(this@QRCodeCam, "Erro de conexão", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+
+                        override fun onResponse(
+                            call: Call<ComputadorModel>,
+                            response: Response<ComputadorModel>
+                        ) {
+                            response.body()?.let {
+                                Toast.makeText(
+                                    this@QRCodeCam,
+                                    "Computador cadastrado com sucesso!",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                clearContent()
+                                onBackPressed()
+                            }
+                        }
+
+                    })
+                }
+            }
         } else if (result.text.isNullOrEmpty()) {
             setButtonOpenAction(status = false)
             setTextViewAlert(status = false)
@@ -156,10 +214,6 @@ class QRCodeCam : AppCompatActivity(),
     ) {
         btnRegister.text = label
         btnRegister.visibility = if (status) View.VISIBLE else View.GONE
-        btnRegister.setOnClickListener {
-            Toast.makeText(this, "Computador cadastrado com sucesso", Toast.LENGTH_SHORT).show()
-            clearContent()
-        }
     }
 
     private fun setTextViewAlert(
@@ -178,4 +232,5 @@ class QRCodeCam : AppCompatActivity(),
         setTextViewAlert(status = false)
         ivValidation.visibility = View.GONE
     }
+
 }

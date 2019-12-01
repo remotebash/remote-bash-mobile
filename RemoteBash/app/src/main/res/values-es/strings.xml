@@ -5,18 +5,8 @@
     <string name="novoLaboratorio" translatable="false">Nuevo Laboratorio</string>
     <string name="senha" translatable="false">Contraseña</string>
     <string name="usuario" translatable="false">Usuario</string>
-    <string name="descricao" translatable="false">Descripción</string>
     <string name="salvar" translatable="false">Guardar</string>
-    <string name="cancelar" translatable="false">Cancelar</string>
     <string name="lembreMim" translatable="false">Acuérdate de mi</string>
-    <string name="computadores">Computadores</string>
-    <string name="comando" translatable="false">Comando</string>
-    <string name="executar" translatable="false">Correr</string>
-    <string name="clearContentRead">"Borrar el área de contenido de lectura "</string>
-    <string name="closeFullscreen">"Salga del modo de pantalla completa "</string>
-    <string name="info">Informacion</string>
-    <string name="infoDesc">"Apunte a la ceja QRCode, es rápido;) "</string>
-    <string name="invalidCode">"Código no reconocido "</string>
     <string name="invalidQRCode">"No es un código QR de bash remoto :( "</string>
     <string name="lastContentRead">"Contenido de la última lectura: "</string>
     <string name="nothingRead">"Nada leído todavía "</string>
@@ -26,4 +16,15 @@
     <string name="requestButtonOk" translatable="false">Permitir</string>
     <string name="newPCviaQRCode">Nueva Computadora - QRCode</string>
     <string name="laboratorios">Laboratorios</string>
+    <string name="invalidCode" translatable="false">"Código no reconocido "</string>
+    <string name="infoDesc" translatable="false">"Apunte a la ceja QRCode, es rápido;) "</string>
+    <string name="info" translatable="false">Informacion</string>
+    <string name="executar" translatable="false">Executable</string>
+    <string name="descricao" translatable="false">Descripción</string>
+    <string name="computadores" translatable="false">Computadores</string>
+    <string name="comando" translatable="false">Comando</string>
+    <string name="closeFullscreen" translatable="false">Salga del modo de pantalla completa</string>
+    <string name="clearContentRead" translatable="false">"Borrar el área de contenido de lectura "</string>
+    <string name="cancelar" translatable="false">Cancelar</string>
+    <string name="qrcodeFormat" translatable="false">Tipo de barra de código:</string>
 </resources>

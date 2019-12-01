@@ -55,11 +55,6 @@ class Laboratorio : AppCompatActivity() {
         startActivity(newLaboratorio)
     }
 
-    fun newComputer(v: View) {
-        val newComputer = Intent(this, QRCodeCam::class.java)
-        startActivity(newComputer)
-    }
-
     private var doubleBackToExit = false
     override fun onBackPressed() {
         if (doubleBackToExit) {

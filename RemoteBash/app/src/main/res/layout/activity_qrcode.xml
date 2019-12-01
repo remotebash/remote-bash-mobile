@@ -124,7 +124,7 @@
                     android:layout_height="100dp"
                     android:layout_marginTop="0.55in"
                     android:src="@mipmap/like"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
             </RelativeLayout>
 

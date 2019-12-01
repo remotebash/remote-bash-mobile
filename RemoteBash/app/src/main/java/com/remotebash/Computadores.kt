@@ -3,6 +3,7 @@ package com.remotebash
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_computadores.*
 
@@ -18,5 +19,10 @@ class Computadores : AppCompatActivity() {
             val comando = Intent(this,  CommandLine::class.java)
             startActivity(comando)
         }
+    }
+
+    fun newComputer(v: View) {
+        val newComputer = Intent(this, QRCodeCam::class.java)
+        startActivity(newComputer)
     }
 }
