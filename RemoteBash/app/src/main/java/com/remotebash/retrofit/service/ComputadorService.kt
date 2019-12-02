@@ -6,6 +6,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ComputadorService {
 
@@ -13,5 +14,5 @@ interface ComputadorService {
     fun addComputador(@Body computador: ComputadorModel): Call<ComputadorModel>
 
     @GET("search/laboratories/{id}")
-    fun listLaboratorio(): Call<LaboratorioModel>
+    fun listComputers(@Path("id") id: Long): Call<List<ComputadorModel>>
 }

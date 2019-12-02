@@ -35,25 +35,28 @@ class NewLaboratorio : AppCompatActivity() {
             Toast.makeText(this, "Nome Computador Obrigatorio!", Toast.LENGTH_SHORT).show()
         } else {
 
-            /*var usuarioModel = UsuarioModel()
-            usuarioModel.id = preferencias!!.getLong("idUsuario", 0L)
-            usuarioModel.name = preferencias!!.getString("name", null)
-            usuarioModel.cellphone = preferencias!!.getString("cellphone", null)
-            usuarioModel.email = preferencias!!.getString("email", null)
-            usuarioModel.address = preferencias!!.getString("address", null)*/
-
-            val laboratorio = LaboratorioModel(etAndar.text.toString(), etCapacidade.text.toString())
-            val callAddLaboratorios = RetrofitInitializer().laboratorioService().addLaboratorio(laboratorio)
+            val laboratorio =
+                LaboratorioModel(etAndar.text.toString(), etCapacidade.text.toString())
+            val callAddLaboratorios =
+                RetrofitInitializer().laboratorioService().addLaboratorio(laboratorio)
 
             callAddLaboratorios.enqueue(object : Callback<LaboratorioModel> {
                 override fun onFailure(call: Call<LaboratorioModel>, t: Throwable) {
                     Log.e("onFailure addLab error", t.toString())
-                    Toast.makeText(this@NewLaboratorio, "Erro de conexão", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@NewLaboratorio, "Erro de conexão", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
-                override fun onResponse(call: Call<LaboratorioModel>, response: Response<LaboratorioModel>) {
+                override fun onResponse(
+                    call: Call<LaboratorioModel>,
+                    response: Response<LaboratorioModel>
+                ) {
                     response.body()?.let {
-                        Toast.makeText(this@NewLaboratorio, "Laboratório cadastrado com sucesso!", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this@NewLaboratorio,
+                            "Laboratório cadastrado com sucesso!",
+                            Toast.LENGTH_LONG
+                        ).show()
                         onBackPressed()
                     }
                 }

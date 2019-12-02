@@ -10,5 +10,6 @@ class LaboratorioModel() {
     var name: String? = null
     var description: String? = null
     val user: UsuarioModel? = null
+    val computerSet: List<ComputadorModel>? = null
 
 }
