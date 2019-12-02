@@ -14,5 +14,6 @@ interface ComputadorService {
     fun addComputador(@Body computador: ComputadorModel): Call<ComputadorModel>
 
     @GET("search/laboratories/{id}")
-    fun listComputers(@Path("id") id: Long): Call<List<ComputadorModel>>
+    fun listLabs(@Path("id") id: Long): Call<LaboratorioModel>
+
 }

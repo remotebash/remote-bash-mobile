@@ -7,40 +7,49 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.remotebash.R
 import com.remotebash.model.ComputadorModel
-import kotlinx.android.synthetic.main.activity_layout_cardview_lab.view.*
-
+import com.remotebash.model.LaboratorioModel
+import kotlinx.android.synthetic.main.activity_layout_cardview_pc.view.*
 
 class ComputadorListAdapter(
-    private val listPc: List<ComputadorModel>,
+    private val listPc: LaboratorioModel,
     private val context: Context
 ) : RecyclerView.Adapter<ComputadorListAdapter.ViewHolder>() {
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val pcList = listPc[position]
-        holder.bindView(pcList)
+        val pcList = listPc.computerSet!![position]
+        val idPc = listPc.id
+        holder.bindView(pcList, idPc)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context)
-            .inflate(R.layout.activity_layout_cardview_lab, parent, false)
+            .inflate(R.layout.activity_layout_cardview_pc, parent, false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return listPc.size
+        if (listPc.id!!.toInt() == 13) {
+            return listPc.computerSet!!.size
+        }
+        return 0
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val ivLaboratorio = itemView.laboratorio_item_nome
-        val ivDescricao = itemView.descricao_item_nome
+        val ivSistema = itemView.computador_sistema
+        val ivMac = itemView.computador_mac
 
-        fun bindView(labModel: ComputadorModel) {
-            ivLaboratorio.text = "nomePc"
-            ivDescricao.text = "descPc"
+        fun bindView(pcs: ComputadorModel, id: Long?) {
+            if (id!!.toInt() == 13) {
+                ivSistema.text = pcs.operationalSystem
+                ivMac.text = pcs.macaddress
+            }
 
         }
 
     }
 
 }
+
+
 

@@ -11,7 +11,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.remotebash.adapter.ComputadorListAdapter
+import com.remotebash.adapter.LaboratorioListAdapter
 import com.remotebash.model.ComputadorModel
+import com.remotebash.model.LaboratorioModel
 import com.remotebash.retrofit.RetrofitInitializer
 import kotlinx.android.synthetic.main.activity_computadores.*
 import retrofit2.Call
@@ -35,16 +37,16 @@ class Computadores : AppCompatActivity() {
             startActivity(comando)
         }
 
-        val callListaComputadores = RetrofitInitializer().computadorService().listComputers(13)
-        callListaComputadores.enqueue(object : Callback<List<ComputadorModel>?> {
-            override fun onFailure(call: Call<List<ComputadorModel>?>, t: Throwable) {
-                Log.e("onFailure pc error", t.toString())
+        val callListaLaboratorios = RetrofitInitializer().computadorService().listLabs(13)
+        callListaLaboratorios.enqueue(object : Callback<LaboratorioModel>{
+            override fun onFailure(call: Call<LaboratorioModel>, t: Throwable) {
+                Log.e("onFailure lab error", t.toString())
                 Toast.makeText(this@Computadores, "Erro de conexão", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(
-                call: Call<List<ComputadorModel>?>,
-                response: Response<List<ComputadorModel>?>
+                call: Call<LaboratorioModel>,
+                response: Response<LaboratorioModel>
             ) {
                 response.body()?.let {
                     val recyclerView = rvComputadores
