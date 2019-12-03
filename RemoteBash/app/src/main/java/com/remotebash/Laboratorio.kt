@@ -27,14 +27,17 @@ class Laboratorio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_laboratorios)
 
+        pbCircular.visibility = View.VISIBLE
+
         preferencias = getSharedPreferences("remotebash", Context.MODE_PRIVATE)
         editPreferencias = preferencias?.edit()
 
         val callListaLaboratorios = RetrofitInitializer().laboratorioService().listLaboratorio()
         callListaLaboratorios.enqueue(object : Callback<List<LaboratorioModel>?> {
             override fun onFailure(call: Call<List<LaboratorioModel>?>, t: Throwable) {
+                pbCircular.visibility = View.INVISIBLE
                 Log.e("onFailure lab error", t.toString())
-                Toast.makeText(this@Laboratorio, "Erro de conexão", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Laboratorio, getString(R.string.erroConexao), Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<List<LaboratorioModel>?>, response: Response<List<LaboratorioModel>?>) {
@@ -44,6 +47,7 @@ class Laboratorio : AppCompatActivity() {
                     val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
                     recyclerView.layoutManager = layoutManager
                 }
+                pbCircular.visibility = View.INVISIBLE
             }
 
         })

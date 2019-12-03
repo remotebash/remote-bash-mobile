@@ -3,6 +3,7 @@ package com.remotebash.adapter
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,12 +25,11 @@ class LaboratorioListAdapter(
         holder.bindView(labList)
 
         holder.itemView.setOnClickListener {
-            it.setOnClickListener {
-                Toast.makeText(context, "Laboratorio ${position + 1}", Toast.LENGTH_SHORT).show()
-                val computador = Intent(context, Computadores::class.java)
-                computador.putExtra("idLaboratorio", listLab[position].id.toString())
-                startActivity(context, computador, null)
-            }
+                Toast.makeText(it.context, "Laboratorio ${position + 1}", Toast.LENGTH_SHORT).show()
+                val laboratorioComputadores = Intent(it.context, Computadores::class.java)
+                Log.d("Laboratorio id", listLab[position].id.toString())
+                laboratorioComputadores.putExtra("idLaboratorio", listLab[position].id.toString())
+                startActivity(it.context, laboratorioComputadores, Bundle.EMPTY)
         }
     }
 
@@ -48,8 +48,10 @@ class LaboratorioListAdapter(
 
         val ivLaboratorio = itemView.laboratorio_item_nome
         val ivDescricao = itemView.descricao_item_nome
+        val ivImegem = itemView.ivImagem
 
         fun bindView(labModel: LaboratorioModel) {
+            ivImegem.setImageResource(R.mipmap.ic_launcher_laboratorio)
             ivLaboratorio.text = labModel.name
             ivDescricao.text = labModel.description
 

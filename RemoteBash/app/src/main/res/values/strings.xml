@@ -31,4 +31,5 @@
     <string name="bemVindo" translatable="false">Bem vindo %s a RemoteBash</string>
     <string name="erroConexao" translatable="false">Erro de conexão</string>
     <string name="ocorreuError" translatable="false">Ocorreu um erro</string>
+    <string name="computador" translatable="false">Computador</string>
 </resources>

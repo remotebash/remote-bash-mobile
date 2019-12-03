@@ -12,6 +12,6 @@ interface ComputadorService {
     @POST("register/computers")
     fun addComputador(@Body computador: ComputadorModel): Call<ComputadorModel>
 
-    @GET("search/laboratories/{id}")
-    fun listLaboratorio(): Call<LaboratorioModel>
+    @GET("/search/computers/{id}")
+    fun computador(): Call<ComputadorModel>
 }

@@ -30,4 +30,5 @@
     <string name="bemVindo">" Welcome %s to RemoteBash"</string>
     <string name="erroConexao">Connection error</string>
     <string name="ocorreuError">An error has occurred</string>
+    <string name="computador">Computer</string>
 </resources>

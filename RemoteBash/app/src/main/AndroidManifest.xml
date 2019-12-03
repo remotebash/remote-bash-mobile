@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/rb_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CommandLine"></activity>
+        <activity android:name=".ComputadorEspecifico"/>
+        <activity android:name=".CommandLine" />
         <activity android:name=".Computadores" />
         <activity android:name=".MainActivity">
             <intent-filter>

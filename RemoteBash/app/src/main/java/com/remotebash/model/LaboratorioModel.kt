@@ -9,6 +9,7 @@ class LaboratorioModel() {
     var id: Long? = null
     var name: String? = null
     var description: String? = null
-    val user: UsuarioModel? = null
+    var user: UsuarioModel? = null
+    var computerSet: List<ComputadorModel>? = null
 
 }

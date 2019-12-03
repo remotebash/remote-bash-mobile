@@ -34,6 +34,7 @@ class NewLaboratorio : AppCompatActivity() {
             etAndar.requestFocus()
             Toast.makeText(this, "Nome Computador Obrigatorio!", Toast.LENGTH_SHORT).show()
         } else {
+            pbCircular.visibility = View.VISIBLE
 
             /*var usuarioModel = UsuarioModel()
             usuarioModel.id = preferencias!!.getLong("idUsuario", 0L)
@@ -47,6 +48,7 @@ class NewLaboratorio : AppCompatActivity() {
 
             callAddLaboratorios.enqueue(object : Callback<LaboratorioModel> {
                 override fun onFailure(call: Call<LaboratorioModel>, t: Throwable) {
+                    pbCircular.visibility = View.INVISIBLE
                     Log.e("onFailure addLab error", t.toString())
                     Toast.makeText(this@NewLaboratorio, "Erro de conexão", Toast.LENGTH_SHORT).show()
                 }
@@ -56,6 +58,7 @@ class NewLaboratorio : AppCompatActivity() {
                         Toast.makeText(this@NewLaboratorio, "Laboratório cadastrado com sucesso!", Toast.LENGTH_LONG).show()
                         onBackPressed()
                     }
+                    pbCircular.visibility = View.INVISIBLE
                 }
 
             })

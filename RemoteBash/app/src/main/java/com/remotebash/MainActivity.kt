@@ -29,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         editPreferencias = preferencias?.edit()
 
         if (preferencias!!.getBoolean("autenticado", false)) {
+            Toast.makeText(this@MainActivity,
+                getString(R.string.bemVindo, preferencias!!.getString("name", "")),
+                Toast.LENGTH_LONG).show()
             val laboratorio = Intent(this, Laboratorio::class.java)
             startActivity(laboratorio)
         }
@@ -50,11 +53,13 @@ class MainActivity : AppCompatActivity() {
                 toastAlert(2)
             }
             else -> {
+                pbCircular.visibility = View.VISIBLE
                 val usuario = UsuarioModel(email.text.toString(), senha.text.toString())
                 val callUsuario = RetrofitInitializer().usuarioService().usuario(usuario)
 
                 callUsuario.enqueue(object : Callback<UsuarioModel> {
                     override fun onFailure(call: Call<UsuarioModel>, t: Throwable) {
+                        pbCircular.visibility = View.GONE
                         Log.e("onFailure main error", t.toString())
                         Toast.makeText(this@MainActivity, getString(R.string.erroConexao), Toast.LENGTH_SHORT).show()
                     }
@@ -84,6 +89,7 @@ class MainActivity : AppCompatActivity() {
                                 toastAlert(3)
                             }
                         }
+                        pbCircular.visibility = View.GONE
                     }
 
                 })

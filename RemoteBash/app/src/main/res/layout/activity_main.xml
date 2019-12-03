@@ -16,8 +16,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingTop="100sp"
-            android:paddingBottom="100sp">
+            android:paddingTop="90sp"
+            android:paddingBottom="80sp">
 
             <ImageView
                 android:id="@+id/imageRemoteBash"
@@ -75,6 +75,13 @@
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 app:layout_constraintTop_toBottomOf="@+id/swHabilitado" />
+
+            <ProgressBar
+                android:id="@+id/pbCircular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogar"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
