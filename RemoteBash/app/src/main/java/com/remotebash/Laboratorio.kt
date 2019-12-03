@@ -40,11 +40,15 @@ class Laboratorio : AppCompatActivity() {
                 Toast.makeText(this@Laboratorio, getString(R.string.erroConexao), Toast.LENGTH_SHORT).show()
             }
 
-            override fun onResponse(call: Call<List<LaboratorioModel>?>, response: Response<List<LaboratorioModel>?>) {
+            override fun onResponse(
+                call: Call<List<LaboratorioModel>?>,
+                response: Response<List<LaboratorioModel>?>
+            ) {
                 response.body()?.let {
                     val recyclerView = rvLaboratorios
                     recyclerView.adapter = LaboratorioListAdapter(it, this@Laboratorio)
-                    val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+                    val layoutManager =
+                        StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
                     recyclerView.layoutManager = layoutManager
                 }
                 pbCircular.visibility = View.INVISIBLE

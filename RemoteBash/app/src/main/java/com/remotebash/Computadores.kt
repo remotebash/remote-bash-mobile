@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -73,5 +74,17 @@ class Computadores : AppCompatActivity() {
     fun newComputer(v: View) {
         val newComputer = Intent(this, QRCodeCam::class.java)
         startActivity(newComputer)
+    }
+
+    private var doubleBackToExit = false
+    override fun onBackPressed() {
+        if (doubleBackToExit) {
+            editPreferencias?.putBoolean("autenticado", false)
+            editPreferencias?.commit()
+            super.onBackPressed()
+        }
+        this.doubleBackToExit = true
+        Toast.makeText(this, "Toque novamente para sair", Toast.LENGTH_SHORT).show()
+        Handler().postDelayed(Runnable { doubleBackToExit = false }, 1500)
     }
 }

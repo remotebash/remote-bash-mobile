@@ -50,16 +50,22 @@ class CommandLine : AppCompatActivity() {
 
             override fun onResponse(call: Call<ComandoModel>, response: Response<ComandoModel>) {
                 val campoRetorno = findViewById<TextView>(R.id.tvRetorno)
-                if(response.code() == 200) {
+                if (response.code() == 200) {
                     response.body()?.let {
                         Log.e("Response 200", it.toString())
-                        campoRetorno.text = String.format("%s\n%s\n%s", campoRetorno.text, it.command, it.result)
+                        campoRetorno.text =
+                            String.format("%s\n%s\n%s", campoRetorno.text, it.command, it.result)
                         etComando.setText("")
                     }
                 } else {
                     response.errorBody()?.let {
                         Log.e("Response ${response.code()}", it.string())
-                        campoRetorno.text = String.format("%s\n%s\n%s", campoRetorno.text, etComando.text, getString(R.string.ocorreuError))
+                        campoRetorno.text = String.format(
+                            "%s\n%s\n%s",
+                            campoRetorno.text,
+                            etComando.text,
+                            getString(R.string.ocorreuError)
+                        )
                         etComando.setText("")
                     }
                 }

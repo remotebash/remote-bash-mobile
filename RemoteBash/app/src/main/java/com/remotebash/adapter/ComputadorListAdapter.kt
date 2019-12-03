@@ -22,8 +22,6 @@ class ComputadorListAdapter(
         val pcList = listPc.computerSet!![position]
         val idPc = listPc.id
         holder.bindView(pcList, idPc)
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
