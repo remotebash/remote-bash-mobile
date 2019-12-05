@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="90sp"
+            android:paddingBottom="80sp">
+
+            <ImageView
+                android:id="@+id/imageRemoteBash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/remotebash_logo_1" />
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:background="@drawable/edit_text_login"
+                android:hint="@string/usuario"
+                android:inputType="textEmailAddress"
+                android:minWidth="180sp"
+                android:onClick="focus"
+                android:padding="10sp"
+                android:textCursorDrawable="@drawable/cursor_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/imageRemoteBash" />
+
+            <EditText
+                android:id="@+id/etCapacidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/edit_text_login"
+                android:hint="@string/senha"
+                android:inputType="textPassword"
+                android:minWidth="180sp"
+                android:onClick="focus"
+                android:padding="10sp"
+                android:textCursorDrawable="@drawable/cursor_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+            <Switch
+                android:id="@+id/swHabilitado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:checked="false"
+                android:text="@string/lembreMim"
+                app:layout_constraintTop_toBottomOf="@id/etCapacidade" />
+
+            <Button
+                android:id="@+id/btnLogar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:width="150sp"
+                android:height="50sp"
+                android:background="@drawable/button_login"
+                android:onClick="logar"
+                android:text="@string/logar"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:layout_constraintTop_toBottomOf="@+id/swHabilitado" />
+
+            <ProgressBar
+                android:id="@+id/pbCircular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogar"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

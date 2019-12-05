@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="novoComputador" translatable="false">New Computer</string>
+    <string name="novoLaboratorio" translatable="false">New Laboratory</string>
+    <string name="senha" translatable="false">Password</string>
+    <string name="usuario" translatable="false">User</string>
+    <string name="logar" translatable="false">Login</string>
+    <string name="salvar" translatable="false">Save</string>
+    <string name="lembreMim" translatable="false">Remember me</string>
+    <string name="lastContentRead">"Contents of last reading: "</string>
+    <string name="nothingRead">"Nothing read yet "</string>
+    <string name="requestDescription">"Will need to allow the use of the camera, beauty? "</string>
+    <string name="requestButtonCancel" translatable="false">Cancel</string>
+    <string name="registerPC" translatable="false">Register</string>
+    <string name="requestButtonOk" translatable="false">Enable</string>
+    <string name="newPCviaQRCode">New computer - QRCode</string>
+    <string name="laboratorios">Laboratories</string>
+    <string name="invalidQRCode" translatable="false">"Not a Remote-bash QRCode :( "</string>
+    <string name="invalidCode" translatable="false">"Code not recognized. "</string>
+    <string name="infoDesc" translatable="false">"Point to the QR Code, it's fast;) "</string>
+    <string name="info" translatable="false">Information</string>
+    <string name="executar" translatable="false">Run</string>
+    <string name="descricao" translatable="false">Description</string>
+    <string name="computadores" translatable="false">Computers</string>
+    <string name="comando" translatable="false">Command</string>
+    <string name="closeFullscreen" translatable="false">"Exit fullscreen mode "</string>
+    <string name="clearContentRead" translatable="false">Clear read content area</string>
+    <string name="cancelar" translatable="false">Cancel</string>
+    <string name="qrcodeFormat" translatable="false">Code Bar Type:</string>
+    <string name="bemVindo">" Welcome %s to RemoteBash"</string>
+    <string name="erroConexao">Connection error</string>
+    <string name="ocorreuError">An error has occurred</string>
+    <string name="computador">Computer</string>
+</resources>
