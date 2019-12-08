@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.Result
 import com.remotebash.model.ComputadorModel
+import com.remotebash.model.LaboratorioModel
 import com.remotebash.retrofit.RetrofitInitializer
 import com.remotebash.util.*
 import kotlinx.android.synthetic.main.activity_qrcode.*
@@ -174,7 +175,7 @@ class QRCodeCam : AppCompatActivity(),
 
                     callAddComputers.enqueue(object : Callback<ComputadorModel> {
                         override fun onFailure(call: Call<ComputadorModel>, t: Throwable) {
-                            Log.e("onFailure addLab error", t.toString())
+                            Log.e("onFailure addPc error", t.toString())
                             Toast.makeText(this@QRCodeCam, "Erro de conexão", Toast.LENGTH_SHORT)
                                 .show()
                         }

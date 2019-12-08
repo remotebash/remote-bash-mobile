@@ -31,10 +31,7 @@ class ComputadorListAdapter(
     }
 
     override fun getItemCount(): Int {
-        if (listPc.id!!.toInt() == 13) {
-            return listPc.computerSet!!.size
-        }
-        return 0
+        return listPc.computerSet!!.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -44,23 +41,22 @@ class ComputadorListAdapter(
         val ivImagem = itemView.ivComputadores
 
         fun bindView(pcs: ComputadorModel, id: Long?) {
-            if (id!!.toInt() == 13) {
-                ivSistema.text = pcs.operationalSystem
-                ivMac.text = pcs.macaddress
-                itemView.setOnClickListener {
-                    it.apply{
-                        val comandoPc = Intent(context, CommandLine::class.java)
-                        comandoPc.putExtra("idPc", pcs.id)
-                        startActivity(context, comandoPc, null)
-                    }
+            ivSistema.text = pcs.operationalSystem
+            ivMac.text = pcs.macaddress
+            itemView.setOnClickListener {
+                it.apply {
+                    val comandoPc = Intent(context, CommandLine::class.java)
+                    comandoPc.putExtra("idPc", pcs.id)
+                    startActivity(context, comandoPc, null)
                 }
             }
-
         }
 
     }
 
 }
+
+
 
 
 
