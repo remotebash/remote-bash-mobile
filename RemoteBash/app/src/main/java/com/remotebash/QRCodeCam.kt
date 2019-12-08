@@ -146,7 +146,7 @@ class QRCodeCam : AppCompatActivity(),
             setTextViewAlert(status = false)
             ivValidation.setImageDrawable(getDrawable(R.mipmap.like))
             btnRegister.setOnClickListener {
-                btnRegister.setOnClickListener {
+                btnRegister.apply {
                     var delimiter = ";"
                     var parts = result.toString().split(delimiter)
 
