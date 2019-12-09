@@ -6,7 +6,7 @@ class LaboratorioModel() {
         this.description = descricao
     }
 
-    var id: Long? = null
+    var id: Long? = 0
     var name: String? = null
     var description: String? = null
     var user: UsuarioModel? = null

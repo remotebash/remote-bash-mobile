@@ -32,7 +32,9 @@ class Computadores : AppCompatActivity() {
         editPreferencias = preferencias?.edit()
 
         ibComando.setOnClickListener {
+            Log.d("ID Laboratório", intent.getStringExtra("idLaboratorio"))
             val comando = Intent(this, CommandLine::class.java)
+            comando.putExtra("idLab", intent.getStringExtra("idLaboratorio").toLong())
             startActivity(comando)
         }
 

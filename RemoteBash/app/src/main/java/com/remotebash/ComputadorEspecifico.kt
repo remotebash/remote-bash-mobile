@@ -21,6 +21,7 @@ class ComputadorEspecifico : AppCompatActivity() {
 
         btComando.setOnClickListener {
             val comando = Intent(this, CommandLine::class.java)
+            comando.putExtra("idPc", intent.getLongExtra("idPc", 0))
             startActivity(comando)
         }
 
@@ -48,7 +49,7 @@ class ComputadorEspecifico : AppCompatActivity() {
                     memoriaRAM.text = it?.ramMemory
 
                     var arrayHDtotal = it?.hdTotal?.split("GB")
-                    var arrayHDusado = it?.hdUsage?.split("B")
+                    var arrayHDusado = it?.hdUsage?.split("B", "GB")
                     pbProgresso.progress = (arrayHDusado!![0].toInt() * 100) / arrayHDtotal!![0].toInt()
                     namePorcentagem.text = ((arrayHDusado!![0].toInt() * 100) / arrayHDtotal!![0].toInt()).toString().plus("%")
                     processadorMarca.text = it?.processorBrand
