@@ -2,12 +2,14 @@ package com.remotebash.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.remotebash.CommandLine
+import com.remotebash.ComputadorEspecifico
 import com.remotebash.R
 import com.remotebash.model.ComputadorModel
 import com.remotebash.model.LaboratorioModel
@@ -41,15 +43,15 @@ class ComputadorListAdapter(
         val ivImagem = itemView.ivComputadores
 
         fun bindView(pcs: ComputadorModel, id: Long?) {
-            ivSistema.text = pcs.operationalSystem
-            ivMac.text = pcs.macaddress
-            itemView.setOnClickListener {
-                it.apply {
-                    val comandoPc = Intent(context, CommandLine::class.java)
-                    comandoPc.putExtra("idPc", pcs.id)
-                    startActivity(context, comandoPc, null)
+                ivSistema.text = pcs.operationalSystem
+                ivMac.text = pcs.macaddress
+                itemView.setOnClickListener {
+                    it.apply{
+                        val comandoPc = Intent(context, ComputadorEspecifico::class.java)
+                        comandoPc.putExtra("idPc", pcs.id)
+                        startActivity(context, comandoPc, null)
+                    }
                 }
-            }
         }
 
     }

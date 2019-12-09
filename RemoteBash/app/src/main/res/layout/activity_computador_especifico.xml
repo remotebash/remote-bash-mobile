@@ -10,20 +10,233 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="@string/computador" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="@android:dimen/thumbnail_width"
+                android:layout_height="wrap_content"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/computador" />
+            <ProgressBar
+                android:id="@+id/pbCircular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="invisible"/>
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvComputadores"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/app_bar" />
+        android:layout_height="wrap_content"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:layout_below="@id/app_bar">
+
+        //Computador
+        <TextView
+            android:id="@+id/nameComputador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/macAddress"/>
+        <TextView
+            android:id="@+id/macaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/nameComputador"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"/>
+
+        //Sistema Operacional
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/nameSO"
+            android:layout_below="@id/nameComputador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/sistemaOperacional"/>
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/sistemaOperacional"
+            android:layout_below="@id/macaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/nameSO"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"/>
+
+        //HD Total
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/nameHDTotal"
+            android:layout_below="@id/nameSO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/HDTotal"/>
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/HDTotal"
+            android:layout_below="@id/sistemaOperacional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/nameHDTotal"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"/>
+
+        //HD Usado
+        <TextView
+            android:id="@+id/nameHDUsado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameHDTotal"
+            android:text="@string/HDUsado"
+            android:textSize="18sp"
+            android:layout_marginTop="5sp"/>
+        <TextView
+            android:id="@+id/HDUsado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/HDTotal"
+            android:textSize="18sp"
+            android:layout_marginTop="5sp"
+            android:layout_toEndOf="@id/nameHDUsado"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"/>
+
+        //Porcentagem
+        <TextView
+            android:id="@+id/namePorcentagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_below="@id/nameHDUsado"/>
+        <ProgressBar
+            android:id="@+id/pbProgresso"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/HDUsado"
+            android:layout_toEndOf="@id/namePorcentagem"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="5sp"
+            android:backgroundTint="@color/default_orange"
+            android:background="@color/default_white"/>
+
+        //MemoriaRAM
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/nameMemoriaRAM"
+            android:layout_below="@id/pbProgresso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/memoriaRam"/>
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/memoriaRAM"
+            android:layout_below="@id/pbProgresso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/nameMemoriaRAM"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"/>
+
+        //Marca Processador
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/nameProcessadorMarca"
+            android:layout_below="@id/nameMemoriaRAM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/processadorMarca"/>
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/processadorMarca"
+            android:layout_below="@id/memoriaRAM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/nameProcessadorMarca"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"/>
+
+        //Marca Processador
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/nameProcessadorModelo"
+            android:layout_below="@id/nameProcessadorMarca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/processadorModelo"/>
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/processadorModelo"
+            android:layout_below="@id/processadorMarca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/nameProcessadorModelo"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"/>
+
+        //IP
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/nameIP"
+            android:layout_below="@id/nameProcessadorModelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="IP"/>
+        <TextView
+            android:layout_marginTop="5sp"
+            android:id="@+id/ip"
+            android:layout_below="@id/processadorModelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/nameIP"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"/>
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btAtualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16sp"
+        android:layout_marginBottom="86dp"
+        app:backgroundTint="@color/default_white"
+        android:tint="@color/default_orange"
+        android:src="@drawable/ic_refresh"
+        android:onClick="atualizarInfos"
+        />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btComando"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16sp"
+        android:layout_marginBottom="16sp"
+        app:backgroundTint="@color/default_white"
+        android:tint="@color/default_orange"
+        android:src="@mipmap/ic_launcher_command_line"
+        />
 
 
 </RelativeLayout>

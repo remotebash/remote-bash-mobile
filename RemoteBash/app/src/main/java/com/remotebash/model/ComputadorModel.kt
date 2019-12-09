@@ -15,7 +15,7 @@ class ComputadorModel() {
         this.macaddress = macaddress
     }
 
-    var id: Long? = null
+    var id: Long? = 0
     var macaddress: String? = null
     var ip: String? = null
     var operationalSystem: String? = null
