@@ -31,8 +31,6 @@ class Computadores : AppCompatActivity() {
         preferencias = getSharedPreferences("remotebash", Context.MODE_PRIVATE)
         editPreferencias = preferencias?.edit()
 
-        Log.e("ID Laboratorio", intent.getStringExtra("idLaboratorio"))
-
         ibComando.setOnClickListener {
             val comando = Intent(this, CommandLine::class.java)
             startActivity(comando)
@@ -45,8 +43,7 @@ class Computadores : AppCompatActivity() {
             override fun onFailure(call: Call<LaboratorioModel>, t: Throwable) {
                 pbCircular.visibility = View.INVISIBLE
                 Log.e("onFailure computs error", t.toString())
-                Toast.makeText(
-                    this@Computadores,
+                Toast.makeText(this@Computadores,
                     getString(R.string.erroConexao),
                     Toast.LENGTH_SHORT
                 ).show()
@@ -76,15 +73,4 @@ class Computadores : AppCompatActivity() {
         startActivity(newComputer)
     }
 
-    private var doubleBackToExit = false
-    override fun onBackPressed() {
-        if (doubleBackToExit) {
-            editPreferencias?.putBoolean("autenticado", false)
-            editPreferencias?.commit()
-            super.onBackPressed()
-        }
-        this.doubleBackToExit = true
-        Toast.makeText(this, "Toque novamente para sair", Toast.LENGTH_SHORT).show()
-        Handler().postDelayed(Runnable { doubleBackToExit = false }, 1500)
-    }
 }

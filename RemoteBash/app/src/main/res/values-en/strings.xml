@@ -31,4 +31,12 @@
     <string name="erroConexao">Connection error</string>
     <string name="ocorreuError">An error has occurred</string>
     <string name="computador">Computer</string>
+    <string name="sistemaOperacional" translatable="false">Operational system:</string>
+    <string name="memoriaRam">RAM memory:</string>
+    <string name="HDTotal">Full HD:</string>
+    <string name="HDUsado">HD used:</string>
+    <string name="processadorMarca">Processor brand:</string>
+    <string name="processadorModelo" translatable="false">Processor model:</string>
+    <string name="macAddress">Mac address:</string>
+    <string name="dadosAtualizados">Updated data</string>
 </resources>
