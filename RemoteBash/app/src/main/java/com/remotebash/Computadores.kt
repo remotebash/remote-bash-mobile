@@ -38,6 +38,16 @@ class Computadores : AppCompatActivity() {
             startActivity(comando)
         }
 
+        callDados(View(this))
+
+    }
+
+    fun newComputer(v: View) {
+        val newComputer = Intent(this, QRCodeCam::class.java)
+        startActivity(newComputer)
+    }
+
+    fun callDados(v: View) {
         pbCircular.visibility = View.VISIBLE
         val callListaComputadores = RetrofitInitializer().laboratorioService()
             .laboratorio(intent.getStringExtra("idLaboratorio").toInt())
@@ -45,7 +55,8 @@ class Computadores : AppCompatActivity() {
             override fun onFailure(call: Call<LaboratorioModel>, t: Throwable) {
                 pbCircular.visibility = View.INVISIBLE
                 Log.e("onFailure computs error", t.toString())
-                Toast.makeText(this@Computadores,
+                Toast.makeText(
+                    this@Computadores,
                     getString(R.string.erroConexao),
                     Toast.LENGTH_SHORT
                 ).show()
@@ -67,12 +78,6 @@ class Computadores : AppCompatActivity() {
             }
 
         })
-
-    }
-
-    fun newComputer(v: View) {
-        val newComputer = Intent(this, QRCodeCam::class.java)
-        startActivity(newComputer)
     }
 
 }

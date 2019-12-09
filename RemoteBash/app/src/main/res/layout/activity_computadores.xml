@@ -61,4 +61,45 @@
             android:onClick="newComputer"/>
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btAtualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16sp"
+        android:layout_marginBottom="156sp"
+        app:backgroundTint="@color/default_white"
+        android:tint="@color/default_orange"
+        android:src="@drawable/ic_refresh"
+        android:onClick="callDados"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ibAddComputer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16sp"
+        android:layout_marginBottom="86sp"
+        app:backgroundTint="@color/default_white"
+        android:tint="@color/default_orange"
+        android:src="@drawable/ic_add"
+        android:onClick="newComputer"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ibComando"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16sp"
+        android:layout_marginBottom="16sp"
+        app:backgroundTint="@color/default_white"
+        android:tint="@color/default_orange"
+        android:src="@drawable/ic_send"
+        />
+
 </RelativeLayout>

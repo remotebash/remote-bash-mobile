@@ -235,7 +235,7 @@
         android:layout_marginBottom="16sp"
         app:backgroundTint="@color/default_white"
         android:tint="@color/default_orange"
-        android:src="@mipmap/ic_launcher_command_line"
+        android:src="@drawable/ic_send"
         />
 
 

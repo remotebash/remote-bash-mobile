@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="novoComputador" translatable="false">New Computer</string>
-    <string name="novoLaboratorio" translatable="false">New Laboratory</string>
+    <string name="novoLaboratorio" translatable="false">New laboratory</string>
     <string name="senha" translatable="false">Password</string>
     <string name="usuario" translatable="false">User</string>
     <string name="logar" translatable="false">Login</string>
@@ -39,4 +39,5 @@
     <string name="processadorModelo" translatable="false">Processor model:</string>
     <string name="macAddress">Mac address:</string>
     <string name="dadosAtualizados">Updated data</string>
+    <string name="nomeLaboratorio">Lab name</string>
 </resources>

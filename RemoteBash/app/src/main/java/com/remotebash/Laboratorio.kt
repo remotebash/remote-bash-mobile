@@ -27,34 +27,10 @@ class Laboratorio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_laboratorios)
 
-        pbCircular.visibility = View.VISIBLE
-
         preferencias = getSharedPreferences("remotebash", Context.MODE_PRIVATE)
         editPreferencias = preferencias?.edit()
 
-        val callListaLaboratorios = RetrofitInitializer().laboratorioService().listLaboratorio()
-        callListaLaboratorios.enqueue(object : Callback<List<LaboratorioModel>?> {
-            override fun onFailure(call: Call<List<LaboratorioModel>?>, t: Throwable) {
-                pbCircular.visibility = View.INVISIBLE
-                Log.e("onFailure lab error", t.toString())
-                Toast.makeText(this@Laboratorio, getString(R.string.erroConexao), Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onResponse(
-                call: Call<List<LaboratorioModel>?>,
-                response: Response<List<LaboratorioModel>?>
-            ) {
-                response.body()?.let {
-                    val recyclerView = rvLaboratorios
-                    recyclerView.adapter = LaboratorioListAdapter(it, this@Laboratorio)
-                    val layoutManager =
-                        StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-                    recyclerView.layoutManager = layoutManager
-                }
-                pbCircular.visibility = View.INVISIBLE
-            }
-
-        })
+        callDados(View(this))
 
     }
 
@@ -73,6 +49,30 @@ class Laboratorio : AppCompatActivity() {
         this.doubleBackToExit = true
         Toast.makeText(this, "Toque novamente para sair", Toast.LENGTH_SHORT).show()
         Handler().postDelayed(Runnable { doubleBackToExit = false }, 1500)
+    }
+
+    fun callDados(v: View){
+        pbCircular.visibility = View.VISIBLE
+        val callListaLaboratorios = RetrofitInitializer().laboratorioService().listLaboratorio()
+        callListaLaboratorios.enqueue(object : Callback<List<LaboratorioModel>?> {
+            override fun onFailure(call: Call<List<LaboratorioModel>?>, t: Throwable) {
+                pbCircular.visibility = View.INVISIBLE
+                Log.e("onFailure lab error", t.toString())
+                Toast.makeText(this@Laboratorio, getString(R.string.erroConexao), Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<List<LaboratorioModel>?>, response: Response<List<LaboratorioModel>?>) {
+                response.body()?.let {
+                    val recyclerView = rvLaboratorios
+                    recyclerView.adapter = LaboratorioListAdapter(it, this@Laboratorio)
+                    val layoutManager =
+                        StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+                    recyclerView.layoutManager = layoutManager
+                }
+                pbCircular.visibility = View.INVISIBLE
+            }
+
+        })
     }
 
 }

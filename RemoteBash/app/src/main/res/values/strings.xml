@@ -4,7 +4,7 @@
     <string name="usuario">Usuário</string>
     <string name="senha">Senha</string>
     <string name="logar">Entrar</string>
-    <string name="novoLaboratorio">Novo Laboratório</string>
+    <string name="novoLaboratorio">Novo laboratório</string>
     <string name="novoComputador">Novo Computador</string>
     <string name="newPCviaQRCode" translatable="false">Novo computador - QRCode</string>
     <string name="descricao">Descrição</string>
@@ -40,4 +40,5 @@
     <string name="processadorModelo" translatable="false">Modelo processador:</string>
     <string name="macAddress" translatable="false">Endereço Mac:</string>
     <string name="dadosAtualizados" translatable="false">Dados atualizados!</string>
+    <string name="nomeLaboratorio" translatable="false">Nome laboratório</string>
 </resources>

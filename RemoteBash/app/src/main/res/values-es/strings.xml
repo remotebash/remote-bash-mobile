@@ -2,7 +2,7 @@
 <resources>
     <string name="novoComputador" translatable="false">Nueva Computadora</string>
     <string name="logar" translatable="false">Iniciar Sesión</string>
-    <string name="novoLaboratorio" translatable="false">Nuevo Laboratorio</string>
+    <string name="novoLaboratorio" translatable="false">Nuevo laboratorio</string>
     <string name="senha" translatable="false">Contraseña</string>
     <string name="usuario" translatable="false">Usuario</string>
     <string name="salvar" translatable="false">Guardar</string>
@@ -39,4 +39,5 @@
     <string name="processadorModelo" translatable="false">Modelo de procesador:</string>
     <string name="macAddress" translatable="false">Dirección Mac:</string>
     <string name="dadosAtualizados" translatable="false">Datos actualizados</string>
+    <string name="nomeLaboratorio">Nombre del laboratorio</string>
 </resources>

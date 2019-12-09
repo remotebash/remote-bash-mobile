@@ -59,7 +59,7 @@
                 android:layout_marginTop="20sp"
                 android:background="@drawable/edit_text_login"
                 android:gravity="center"
-                android:hint="@string/computadores"
+                android:hint="@string/nomeLaboratorio"
                 android:inputType="text"
                 android:minWidth="270sp"
                 android:padding="10sp"

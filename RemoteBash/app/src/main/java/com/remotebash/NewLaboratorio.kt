@@ -59,7 +59,6 @@ class NewLaboratorio : AppCompatActivity() {
                             "Laboratório cadastrado com sucesso!",
                             Toast.LENGTH_LONG
                         ).show()
-                        onBackPressed()
                     }
                     pbCircular.visibility = View.INVISIBLE
                 }
