@@ -37,8 +37,13 @@ class Laboratorio : AppCompatActivity() {
             override fun onFailure(call: Call<List<LaboratorioModel>?>, t: Throwable) {
                 pbCircular.visibility = View.INVISIBLE
                 Log.e("onFailure lab error", t.toString())
-                Toast.makeText(this@Laboratorio, getString(R.string.erroConexao), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@Laboratorio,
+                    getString(R.string.erroConexao),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
+
 
             override fun onResponse(
                 call: Call<List<LaboratorioModel>?>,
@@ -57,6 +62,7 @@ class Laboratorio : AppCompatActivity() {
         })
 
     }
+
 
     fun newLaboratorio(v: View) {
         val newLaboratorio = Intent(this, NewLaboratorio::class.java)

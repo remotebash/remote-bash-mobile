@@ -62,7 +62,6 @@ class Computadores : AppCompatActivity() {
                     val layoutManager =
                         StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
                     recyclerView.layoutManager = layoutManager
-
                 }
                 pbCircular.visibility = View.INVISIBLE
             }
@@ -73,6 +72,7 @@ class Computadores : AppCompatActivity() {
 
     fun newComputer(v: View) {
         val newComputer = Intent(this, QRCodeCam::class.java)
+        newComputer.putExtra("idLab", intent.getStringExtra("idLaboratorio"))
         startActivity(newComputer)
     }
 

@@ -35,7 +35,6 @@ class CommandLine : AppCompatActivity() {
     fun enviarComnado(v: View) {
         pbCircular.visibility = View.VISIBLE
         val idUsuario = preferencias!!.getInt("idUsuario", -1)
-        //val idComputador = intent.getIntExtra("idComputador", 2)
         val idComputador = intent.getLongExtra("idPc", 8)
         val comandoModel =
             ComandoModel(etComando.text.toString(), idComputador.toInt(), "Windows", idUsuario)

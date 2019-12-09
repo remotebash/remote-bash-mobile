@@ -10,6 +10,8 @@ interface ComputadorService {
     @POST("register/computers")
     fun addComputador(@Body computador: ComputadorModel): Call<ComputadorModel>
 
+
     @PUT("update/computers/{id}")
-    fun updatePcOnLab(@Path("id") id:Int): Call<LaboratorioModel>
+    fun updatePcOnLab(@Body laboratorio: LaboratorioModel, @Path("id") id: Int): Call<ComputadorModel>
+
 }
