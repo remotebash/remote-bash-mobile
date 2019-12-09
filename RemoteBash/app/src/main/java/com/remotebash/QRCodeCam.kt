@@ -166,7 +166,8 @@ class QRCodeCam : AppCompatActivity(),
                     val ramMemory = parts[5]
                     val hdTotal = parts[6]
                     val hdUsage = parts[7]
-                    val processorModel = parts[8]
+                    val processorBrand = parts[8]
+                    val processorModel = parts[10]
 
                     val computador =
                         ComputadorModel(
@@ -175,6 +176,7 @@ class QRCodeCam : AppCompatActivity(),
                             ramMemory,
                             hdTotal,
                             hdUsage,
+                            processorBrand,
                             processorModel,
                             macaddress
                         )
@@ -193,10 +195,8 @@ class QRCodeCam : AppCompatActivity(),
                             call: Call<ComputadorModel>,
                             response: Response<ComputadorModel>
                         ) {
-                            var idPc = response.body()!!.id
 
                             response.body()?.let {
-
 
                                 val callListaLaboratorios =
                                     RetrofitInitializer().laboratorioService().listLaboratorio()
@@ -206,6 +206,13 @@ class QRCodeCam : AppCompatActivity(),
                                         call: Call<List<LaboratorioModel>?>,
                                         t: Throwable
                                     ) {
+                                        Log.e("onFailure addPc error", t.toString())
+                                        Toast.makeText(
+                                            this@QRCodeCam,
+                                            "Erro de conexão",
+                                            Toast.LENGTH_SHORT
+                                        )
+                                            .show()
                                     }
 
                                     override fun onResponse(
@@ -214,18 +221,20 @@ class QRCodeCam : AppCompatActivity(),
                                     ) {
                                         response.body()?.let {
 
-                                            val callPcOnLab =
-                                                RetrofitInitializer().computadorService()
-                                                    .updatePcOnLab(
-                                                        it[0],
-                                                        idPc!!.toInt()
-                                                    )
+                                            var labModel = it[1]
 
-                                            callPcOnLab.enqueue(object : Callback<ComputadorModel> {
+                                            val callListPcs =
+                                                RetrofitInitializer().computadorService()
+                                                    .computadorForMac(computador.macaddress.toString())
+
+
+
+                                            callListPcs.enqueue(object : Callback<ComputadorModel> {
                                                 override fun onFailure(
                                                     call: Call<ComputadorModel>,
                                                     t: Throwable
                                                 ) {
+
                                                 }
 
                                                 override fun onResponse(
@@ -233,24 +242,47 @@ class QRCodeCam : AppCompatActivity(),
                                                     response: Response<ComputadorModel>
                                                 ) {
                                                     response.body()?.let {
-                                                        clearContent()
-                                                        onBackPressed()
+
+                                                        var idPc = response.body()!!.id
+                                                        Log.e("ID do pc", idPc.toString())
+
+                                                        val callPcOnLab =
+                                                            RetrofitInitializer().computadorService()
+                                                                .updatePcOnLab(
+                                                                    labModel,
+                                                                    idPc!!.toInt()
+                                                                )
+
+                                                        callPcOnLab.enqueue(object :
+                                                            Callback<ComputadorModel> {
+                                                            override fun onFailure(
+                                                                call: Call<ComputadorModel>,
+                                                                t: Throwable
+                                                            ) {
+
+                                                            }
+
+                                                            override fun onResponse(
+                                                                call: Call<ComputadorModel>,
+                                                                response: Response<ComputadorModel>
+                                                            ) {
+                                                                response.body()?.let {
+                                                                    clearContent()
+                                                                    onBackPressed()
+                                                                }
+                                                            }
+
+                                                        })
+
                                                     }
                                                 }
 
                                             })
 
-
                                         }
                                     }
 
                                 })
-
-
-
-
-
-
                                 Toast.makeText(
                                     this@QRCodeCam,
                                     "Computador cadastrado com sucesso!",
@@ -262,7 +294,6 @@ class QRCodeCam : AppCompatActivity(),
                         }
 
                     })
-
 
                 }
             }
