@@ -28,6 +28,29 @@ class CommandLine : AppCompatActivity() {
         preferencias = getSharedPreferences("remotebash", Context.MODE_PRIVATE)
         editPreferencias = preferencias?.edit()
 
+
+        btnDesligar.setOnClickListener {
+            etComando.setText("shutdown -s 0")
+
+        }
+
+        btnIpConfig.setOnClickListener {
+            etComando.setText("ipconfig")
+
+        }
+
+        btnPing.setOnClickListener {
+            etComando.setText("ping www.google.com")
+
+        }
+
+        btnTaskList.setOnClickListener {
+            etComando.setText("tasklist")
+        }
+
+        btnTaskKill.setOnClickListener{
+            etComando.setText("tskill /f /pid -pidDaTarefa")
+        }
     }
 
     fun enviarComnado(v: View) {
@@ -41,10 +64,17 @@ class CommandLine : AppCompatActivity() {
         Log.d("IdLab", idLaboratorio.toString())
 
         val comandoModel =
-            ComandoModel(etComando.text.toString(), idComputador.toInt(), "Windows", idUsuario, idLaboratorio.toInt())
+            ComandoModel(
+                etComando.text.toString(),
+                idComputador.toInt(),
+                "Windows",
+                idUsuario,
+                idLaboratorio.toInt()
+            )
 
-        if(idLaboratorio.toString() == "0") {
-            val callCommandLine = RetrofitInitializer().comandoService().enviarComandoPC(comandoModel)
+        if (idLaboratorio.toString() == "0") {
+            val callCommandLine =
+                RetrofitInitializer().comandoService().enviarComandoPC(comandoModel)
             callCommandLine.enqueue(object : Callback<ComandoModel> {
                 override fun onFailure(call: Call<ComandoModel>, t: Throwable) {
                     pbCircular.visibility = View.INVISIBLE
@@ -52,13 +82,21 @@ class CommandLine : AppCompatActivity() {
                     Toast.makeText(this@CommandLine, "Erro de conexão", Toast.LENGTH_SHORT).show()
                 }
 
-                override fun onResponse(call: Call<ComandoModel>, response: Response<ComandoModel>) {
+                override fun onResponse(
+                    call: Call<ComandoModel>,
+                    response: Response<ComandoModel>
+                ) {
                     val campoRetorno = findViewById<TextView>(R.id.tvRetorno)
                     if (response.code() == 200) {
                         response.body()?.let {
                             Log.e("Response 200", it.toString())
                             campoRetorno.text =
-                                String.format("%s\n%s\n%s", campoRetorno.text, it.command, it.result)
+                                String.format(
+                                    "%s\n%s\n%s",
+                                    campoRetorno.text,
+                                    it.command,
+                                    it.result
+                                )
                             etComando.setText("")
                         }
                     } else {
@@ -79,7 +117,8 @@ class CommandLine : AppCompatActivity() {
             })
 
         } else {
-            val callCommandLine = RetrofitInitializer().comandoService().enviarComandoLab(comandoModel)
+            val callCommandLine =
+                RetrofitInitializer().comandoService().enviarComandoLab(comandoModel)
             callCommandLine.enqueue(object : Callback<String> {
                 override fun onFailure(call: Call<String>, t: Throwable) {
                     pbCircular.visibility = View.INVISIBLE
@@ -114,10 +153,6 @@ class CommandLine : AppCompatActivity() {
             })
 
         }
-
-
-
     }
-
-
 }
+

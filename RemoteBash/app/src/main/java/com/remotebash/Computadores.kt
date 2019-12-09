@@ -41,12 +41,7 @@ class Computadores : AppCompatActivity() {
         callDados(View(this))
 
     }
-
-    fun newComputer(v: View) {
-        val newComputer = Intent(this, QRCodeCam::class.java)
-        startActivity(newComputer)
-    }
-
+    
     fun callDados(v: View) {
         pbCircular.visibility = View.VISIBLE
         val callListaComputadores = RetrofitInitializer().laboratorioService()
@@ -72,12 +67,18 @@ class Computadores : AppCompatActivity() {
                     val layoutManager =
                         StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
                     recyclerView.layoutManager = layoutManager
-
                 }
                 pbCircular.visibility = View.INVISIBLE
             }
 
         })
+
+    }
+
+    fun newComputer(v: View) {
+        val newComputer = Intent(this, QRCodeCam::class.java)
+        newComputer.putExtra("idLab", intent.getStringExtra("idLaboratorio"))
+        startActivity(newComputer)
     }
 
 }

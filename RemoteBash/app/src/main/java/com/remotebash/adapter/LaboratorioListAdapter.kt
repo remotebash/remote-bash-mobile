@@ -25,10 +25,8 @@ class LaboratorioListAdapter(
         holder.bindView(labList)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(it.context, "Laboratorio ${position + 1}", Toast.LENGTH_SHORT).show()
-            Log.d("Laboratorio id", listLab[position].id.toString())
-
             val laboratorioComputadores = Intent(it.context, Computadores::class.java)
+            Log.d("Laboratorio id", listLab[position].id.toString())
             laboratorioComputadores.putExtra("idLaboratorio", listLab[position].id.toString())
             startActivity(it.context, laboratorioComputadores, Bundle.EMPTY)
         }
@@ -44,7 +42,6 @@ class LaboratorioListAdapter(
         return listLab.size
     }
 
-    // class visivel apenas pela LaboratorioListAdapter
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val ivLaboratorio = itemView.laboratorio_item_nome

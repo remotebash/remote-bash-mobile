@@ -6,12 +6,20 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.Result
+import com.remotebash.adapter.ComputadorListAdapter
+import com.remotebash.adapter.LaboratorioListAdapter
 import com.remotebash.model.ComputadorModel
 import com.remotebash.model.LaboratorioModel
 import com.remotebash.retrofit.RetrofitInitializer
+import com.remotebash.retrofit.service.LaboratorioService
 import com.remotebash.util.*
+import kotlinx.android.synthetic.main.activity_laboratorios.*
+import kotlinx.android.synthetic.main.activity_layout_cardview_lab.*
+import kotlinx.android.synthetic.main.activity_layout_cardview_lab.laboratorio_item_nome
+import kotlinx.android.synthetic.main.activity_layout_cardview_lab.view.*
 import kotlinx.android.synthetic.main.activity_qrcode.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 import pub.devrel.easypermissions.EasyPermissions
@@ -148,6 +156,7 @@ class QRCodeCam : AppCompatActivity(),
             ivValidation.setImageDrawable(getDrawable(R.mipmap.like))
             btnRegister.setOnClickListener {
                 btnRegister.apply {
+                    var idLab = intent.getStringExtra("idLab")
                     var delimiter = ";"
                     var parts = result.toString().split(delimiter)
 
@@ -157,7 +166,8 @@ class QRCodeCam : AppCompatActivity(),
                     val ramMemory = parts[5]
                     val hdTotal = parts[6]
                     val hdUsage = parts[7]
-                    val processorModel = parts[8]
+                    val processorBrand = parts[8]
+                    val processorModel = parts[10]
 
                     val computador =
                         ComputadorModel(
@@ -166,6 +176,7 @@ class QRCodeCam : AppCompatActivity(),
                             ramMemory,
                             hdTotal,
                             hdUsage,
+                            processorBrand,
                             processorModel,
                             macaddress
                         )
@@ -184,7 +195,94 @@ class QRCodeCam : AppCompatActivity(),
                             call: Call<ComputadorModel>,
                             response: Response<ComputadorModel>
                         ) {
+
                             response.body()?.let {
+
+                                val callListaLaboratorios =
+                                    RetrofitInitializer().laboratorioService().listLaboratorio()
+                                callListaLaboratorios.enqueue(object :
+                                    Callback<List<LaboratorioModel>?> {
+                                    override fun onFailure(
+                                        call: Call<List<LaboratorioModel>?>,
+                                        t: Throwable
+                                    ) {
+                                        Log.e("onFailure addPc error", t.toString())
+                                        Toast.makeText(
+                                            this@QRCodeCam,
+                                            "Erro de conexão",
+                                            Toast.LENGTH_SHORT
+                                        )
+                                            .show()
+                                    }
+
+                                    override fun onResponse(
+                                        call: Call<List<LaboratorioModel>?>,
+                                        response: Response<List<LaboratorioModel>?>
+                                    ) {
+                                        response.body()?.let {
+
+                                            var labModel = it[1]
+
+                                            val callListPcs =
+                                                RetrofitInitializer().computadorService()
+                                                    .computadorForMac(computador.macaddress.toString())
+
+
+
+                                            callListPcs.enqueue(object : Callback<ComputadorModel> {
+                                                override fun onFailure(
+                                                    call: Call<ComputadorModel>,
+                                                    t: Throwable
+                                                ) {
+
+                                                }
+
+                                                override fun onResponse(
+                                                    call: Call<ComputadorModel>,
+                                                    response: Response<ComputadorModel>
+                                                ) {
+                                                    response.body()?.let {
+
+                                                        var idPc = response.body()!!.id
+                                                        Log.e("ID do pc", idPc.toString())
+
+                                                        val callPcOnLab =
+                                                            RetrofitInitializer().computadorService()
+                                                                .updatePcOnLab(
+                                                                    labModel,
+                                                                    idPc!!.toInt()
+                                                                )
+
+                                                        callPcOnLab.enqueue(object :
+                                                            Callback<ComputadorModel> {
+                                                            override fun onFailure(
+                                                                call: Call<ComputadorModel>,
+                                                                t: Throwable
+                                                            ) {
+
+                                                            }
+
+                                                            override fun onResponse(
+                                                                call: Call<ComputadorModel>,
+                                                                response: Response<ComputadorModel>
+                                                            ) {
+                                                                response.body()?.let {
+                                                                    clearContent()
+                                                                    onBackPressed()
+                                                                }
+                                                            }
+
+                                                        })
+
+                                                    }
+                                                }
+
+                                            })
+
+                                        }
+                                    }
+
+                                })
                                 Toast.makeText(
                                     this@QRCodeCam,
                                     "Computador cadastrado com sucesso!",
@@ -196,6 +294,7 @@ class QRCodeCam : AppCompatActivity(),
                         }
 
                     })
+
                 }
             }
         } else if (result.text.isNullOrEmpty()) {

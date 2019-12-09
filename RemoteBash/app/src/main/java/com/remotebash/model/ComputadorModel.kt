@@ -4,13 +4,14 @@ class ComputadorModel() {
 
     constructor(
         ip: String, operationalSystem: String, ramMemory: String, hdTotal: String, hdUsage: String
-        , processorModel: String, macaddress: String
+        , processorBrand: String, processorModel: String, macaddress: String
     ) : this() {
         this.ip = ip
         this.operationalSystem = operationalSystem
         this.ramMemory = ramMemory
         this.hdTotal = hdTotal
         this.hdUsage = hdUsage
+        this.processorBrand = processorBrand
         this.processorModel = processorModel
         this.macaddress = macaddress
     }
