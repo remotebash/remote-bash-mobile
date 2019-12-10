@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewLaboratorio">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="@android:dimen/thumbnail_width"
+                android:layout_height="wrap_content"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/novoLaboratorio" />
+            <ProgressBar
+                android:id="@+id/pbCircular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="invisible"/>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/app_bar"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="50sp"
+            android:paddingTop="10sp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivLaboratorio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/laboratorios" />
+
+            <EditText
+                android:id="@+id/etAndar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:background="@drawable/edit_text_login"
+                android:gravity="center"
+                android:hint="@string/nomeLaboratorio"
+                android:inputType="text"
+                android:minWidth="270sp"
+                android:padding="10sp"
+                android:textCursorDrawable="@drawable/cursor_text_view"/>
+
+            <EditText
+                android:id="@+id/etCapacidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/edit_text_login"
+                android:gravity="center"
+                android:hint="@string/descricao"
+                android:inputType="text"
+                android:minWidth="270sp"
+                android:padding="10sp"
+                android:textCursorDrawable="@drawable/cursor_text_view"/>
+
+            <Button
+                android:id="@+id/btnLogar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:width="150sp"
+                android:height="50sp"
+                android:background="@drawable/button_salvar"
+                android:onClick="salvarLaboratorio"
+                android:text="@string/salvar" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

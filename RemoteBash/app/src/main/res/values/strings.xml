@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">remote.bash</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="logar">Entrar</string>
+    <string name="novoLaboratorio">Novo laboratório</string>
+    <string name="novoComputador">Novo Computador</string>
+    <string name="newPCviaQRCode" translatable="false">Novo computador - QRCode</string>
+    <string name="descricao">Descrição</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="lembreMim">Lembre-se de mim</string>
+    <string name="computadores">Computadores</string>
+    <string name="comando">Comando</string>
+    <string name="executar">Executar</string>
+    <string name="info" translatable="false">Informação</string>
+    <string name="infoDesc" translatable="false">Aponta pro QRCode brow, é rapidinho ;)</string>
+    <string name="lastContentRead" translatable="false">Conteúdo da última leitura:</string>
+    <string name="nothingRead" translatable="false">Nada lido ainda</string>
+    <string name="qrcodeFormat" translatable="false">"Tipo barra de código: "</string>
+    <string name="clearContentRead" translatable="false">Limpar área de conteúdo lido</string>
+    <string name="registerPC" translatable="false">Cadastrar!</string>
+    <string name="invalidQRCode" translatable="false">Não é um QRCode da Remote-bash :(</string>
+    <string name="closeFullscreen" translatable="false">Sair de modo fullscreen</string>
+    <string name="requestDescription" translatable="false">Vai precisar permitir o uso da câmera, beleza?</string>
+    <string name="requestButtonOk" translatable="false">Permitir</string>
+    <string name="requestButtonCancel" translatable="false">Cancelar</string>
+    <string name="invalidCode" translatable="false">Código não reconhecido.</string>
+    <string name="laboratorios" translatable="false">Laboratórios</string>
+    <string name="bemVindo" translatable="false">Bem vindo %s a RemoteBash</string>
+    <string name="erroConexao" translatable="false">Erro de conexão</string>
+    <string name="ocorreuError" translatable="false">Ocorreu um erro</string>
+    <string name="computador" translatable="false">Computador</string>
+    <string name="sistemaOperacional" translatable="false">Sistema operacional:</string>
+    <string name="memoriaRam" translatable="false">Memória RAM:</string>
+    <string name="HDTotal" translatable="false">HD total:</string>
+    <string name="HDUsado" translatable="false">HD usado:</string>
+    <string name="processadorMarca" translatable="false">Marca processador:</string>
+    <string name="processadorModelo" translatable="false">Modelo processador:</string>
+    <string name="macAddress" translatable="false">Endereço Mac:</string>
+    <string name="dadosAtualizados" translatable="false">Dados atualizados!</string>
+    <string name="nomeLaboratorio" translatable="false">Nome laboratório</string>
+</resources>
